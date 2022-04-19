@@ -1,11 +1,21 @@
-import { AppBar, Toolbar, Typography } from "@mui/material"
 import PetsIcon from '@mui/icons-material/Pets';
+import { NavLink } from "react-router-dom";
+import styles from './NavBar.module.css';
 
 const NavBar = () => {
     return (
-      <>
-        Navbar
-      </>
+      <div className={styles.container}>
+          {/* <NavLink to='/'>Home</NavLink> */}
+          <div>
+              <PetsIcon/>
+          </div>
+          <div className={styles['container-section']}>
+              <a href='/'>Mascotas</a>
+              <a href='/'>Perritos</a>
+              <a href='/'>Gatitos</a>
+          </div>
+          <a href='/'>Login</a>
+      </div>
     )
 }
 
