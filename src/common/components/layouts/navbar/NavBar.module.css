@@ -6,7 +6,7 @@
     padding: 1.5rem;
     justify-content: space-between;
     /* box-shadow: 0 8px 8px -2px var(--shadow-grey); */
-    backdrop-filter: saturate(180%) blur(10px);
+    backdrop-filter: saturate(180%) blur(18px);
     box-shadow: rgb(2 1 1 / 10%) 0px 5px 20px -5px;
     position: fixed;
     top: 0;

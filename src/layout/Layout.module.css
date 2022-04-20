@@ -1,10 +1,10 @@
 .container{
-    height: 100vh;
+    height: cacl(100vh - 4rem);
 }
 
 .content{
 	width: 100%;
 	margin-top: 4rem;
 	padding: 1rem;
-	height: calc(100% - 4rem);
+	height: 100%;
 }
