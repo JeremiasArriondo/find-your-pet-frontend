@@ -28,6 +28,6 @@
     margin-bottom: 1rem;
 }
 
-input:focus{
-    border: 3px solid var(--blue);
-}
+/* input:focus{
+    border: 1px solid var(--blue);
+} */
