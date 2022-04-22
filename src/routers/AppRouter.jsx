@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Layout from "../layout/Layout"
+import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Pets from "../pages/pets/Pets";
 
@@ -20,6 +21,7 @@ const AppRouter = () => {
                 }
             >
                 <Route path='pets' element={ <Pets/> } />
+                <Route path='home' element={ <Home/> } />
             </Route>
         </Routes>
     

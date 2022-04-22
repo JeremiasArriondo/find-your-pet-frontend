@@ -19,9 +19,15 @@ const NavBar = () => {
               </NavLink>
           </div>
           <div className={styles['container-section']}>
-              <NavLink to={'/pets'} className={styles['navlink']}>Mascotas</NavLink>
-              <NavLink to={'/'} className={styles['navlink']}>Perritos</NavLink>
-              <NavLink to={'/'} className={styles['navlink']}>Gatitos</NavLink>
+              <NavLink to={'/pets'}
+                className={({ isActive }) => isActive ? styles['active'] : ''}
+              >Mascotas</NavLink>
+              <NavLink to={'/'}
+                className={({ isActive }) => isActive ? styles['active'] : ''}
+              >Perritos</NavLink>
+              <NavLink to={'/'} 
+                className={({ isActive }) => isActive ? styles['active'] : ''}
+              >Gatitos</NavLink>
           </div>
           <Avatar />
       </div>

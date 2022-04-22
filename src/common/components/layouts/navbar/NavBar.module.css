@@ -16,6 +16,11 @@
     z-index: 500;
 }
 
+.active{
+    background-color: var(--shadow-grey);
+    border-radius: 5px;
+}
+
 .logo{
     display: flex;
     align-items: center;
@@ -27,10 +32,10 @@
     padding: .5rem;
 }
 
-.navlink:hover{
+/* .navlink:hover{
     background-color: var(--shadow-grey);
     border-radius: 5px;
-}
+} */
 
 .container-section a{
     padding: .5rem;
