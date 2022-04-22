@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import CardPets from '../common/components/card/Card';
+import Footer from '../common/components/layouts/footer/Footer';
 import NavBar from '../common/components/layouts/navbar/NavBar';
 import styles from './Layout.module.css';
 
@@ -9,21 +10,8 @@ const Layout = () => {
         <NavBar/>
         <div className={styles.content}>
           <Outlet />
-          {/* <div className={styles.grid}>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-            <CardPets/>
-          </div> */}
         </div>
+        <Footer className={styles['footer']}/>
     </div>
   )
 };

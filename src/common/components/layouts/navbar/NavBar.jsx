@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { MdPets } from "react-icons/md";
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
@@ -6,7 +7,8 @@ const NavBar = () => {
       <div className={styles.container}>
           {/* <NavLink to='/'>Home</NavLink> */}
           <div>
-              ENCUENTRA TU MASCOTA
+              <MdPets style={{fontSize: '2rem'}}/>
+              <span>ENCUENTRA TU MASCOTA</span> 
           </div>
           <div className={styles['container-section']}>
               <a href='/'>Mascotas</a>
