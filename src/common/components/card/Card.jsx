@@ -6,10 +6,7 @@ const CardPets = () => {
         <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
         <Col>
             <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-            New
-            </Text>
-            <Text h3 color="black">
-            Acme camera
+            Perdido!
             </Text>
         </Col>
         </Card.Header>
@@ -34,10 +31,7 @@ const CardPets = () => {
         <Row>
             <Col>
             <Text color="#000" size={12}>
-                Available soon.
-            </Text>
-            <Text color="#000" size={12}>
-                Get notified.
+                Encontrado el dia viernes, por calle Lavalle
             </Text>
             </Col>
             <Col>
@@ -49,7 +43,7 @@ const CardPets = () => {
                     weight="bold"
                     transform="uppercase"
                 >
-                    Notify Me
+                    Contactar
                 </Text>
                 </Button>
             </Row>
