@@ -1,7 +1,10 @@
 import { FcLike } from "react-icons/fc";
 import { VscGithubInverted } from "react-icons/vsc";
 import styles from './Footer.module.css';
-
+/**
+ * Este componente conforma el footer, teniendo una breve descripcion de la aplicacion
+ * Y enlaces para contactar al desarollador
+ */
 const Footer = () => {
     return (
         <footer className={styles['footer']}>

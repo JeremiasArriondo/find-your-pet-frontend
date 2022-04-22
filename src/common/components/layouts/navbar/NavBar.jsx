@@ -2,7 +2,11 @@ import { NavLink } from "react-router-dom";
 import { MdPets } from "react-icons/md";
 import styles from './NavBar.module.css';
 import { Avatar } from "@nextui-org/react";
-
+/**
+ * Este componente conforma la barra de navegación superior
+ * En su contenido tiene el logo, los enlaces en la navegación
+ * y el logo del icono del usuario
+ */
 const NavBar = () => {
     return (
       <div className={styles['container']}>
