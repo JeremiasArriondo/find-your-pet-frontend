@@ -1,6 +1,6 @@
 .container{
-    background: transparent;
-    /* color: var(--white); */
+    background: rgb(0, 0, 0, .5);
+    color: var(--white);
     display: flex;
     flex-direction: row;
     padding: 1.5rem;

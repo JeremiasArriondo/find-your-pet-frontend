@@ -6,7 +6,7 @@ const NavBar = () => {
       <div className={styles.container}>
           {/* <NavLink to='/'>Home</NavLink> */}
           <div>
-              Encuentra tu mascota!!
+              ENCUENTRA TU MASCOTA
           </div>
           <div className={styles['container-section']}>
               <a href='/'>Mascotas</a>
@@ -18,4 +18,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default NavBar;

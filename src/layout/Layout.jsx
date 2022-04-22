@@ -8,8 +8,8 @@ const Layout = () => {
     <div className={styles.container}>
         <NavBar/>
         <div className={styles.content}>
-          {/* <Outlet /> */}
-          <div className={styles.grid}>
+          <Outlet />
+          {/* <div className={styles.grid}>
             <CardPets/>
             <CardPets/>
             <CardPets/>
@@ -22,8 +22,7 @@ const Layout = () => {
             <CardPets/>
             <CardPets/>
             <CardPets/>
-          </div>
-         
+          </div> */}
         </div>
     </div>
   )

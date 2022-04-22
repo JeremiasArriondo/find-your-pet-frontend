@@ -31,6 +31,6 @@ body {
 }
 
 a{
-  color: var(--dark-light);
+  color: var(--white);
   text-decoration: none;
 }
