@@ -24,10 +24,7 @@ const NavBar = () => {
               >Mascotas</NavLink>
               <NavLink to={'/'}
                 className={({ isActive }) => isActive ? styles['active'] : ''}
-              >Perritos</NavLink>
-              <NavLink to={'/'} 
-                className={({ isActive }) => isActive ? styles['active'] : ''}
-              >Gatitos</NavLink>
+              >Ayuda</NavLink>
           </div>
           <Avatar />
       </div>

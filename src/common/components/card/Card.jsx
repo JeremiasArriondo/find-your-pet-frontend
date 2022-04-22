@@ -12,7 +12,7 @@ const CardPets = () => {
         </Card.Header>
         <Card.Body>
         <Card.Image
-            src="https://www.dondeir.com/wp-content/uploads/2020/12/pasarela-virtual-de-perros-y-gatos-en-adopcion.jpg"
+            src='/img/mockup2.jpeg'
             height={400}
             width="100%"
             alt="Card example background"

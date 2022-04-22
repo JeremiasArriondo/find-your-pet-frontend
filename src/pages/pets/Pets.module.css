@@ -18,3 +18,12 @@
 .container-search{
     margin-right: 1rem;
 }
+
+@media (max-width: 450px) {
+    .container-search{
+        display: none;
+    }
+    .container{
+        grid-template-columns: 1fr;
+    }
+}
