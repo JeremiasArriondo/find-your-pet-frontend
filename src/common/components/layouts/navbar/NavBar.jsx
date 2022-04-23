@@ -22,7 +22,7 @@ const NavBar = () => {
               <NavLink to={'/pets'}
                 className={({ isActive }) => isActive ? styles['active'] : ''}
               >Mascotas</NavLink>
-              <NavLink to={'/'}
+              <NavLink to={'/help'}
                 className={({ isActive }) => isActive ? styles['active'] : ''}
               >Ayuda</NavLink>
           </div>
