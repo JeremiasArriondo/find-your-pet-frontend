@@ -1,6 +1,7 @@
 import Maps from './components/Maps';
 import styles from './Help.module.css';
 import { veterinaryData } from './data.js';
+import { Tooltip } from '@nextui-org/react';
 
 const Help = () => {
     return (
@@ -9,24 +10,33 @@ const Help = () => {
                 <h1>Información de ayuda:</h1>
                 {veterinaryData.map(({ name, phoneNumber }) => {
                     return (
-                        <div key={phoneNumber}>
+                        <li key={phoneNumber}
+                            className={styles.list}
+                        >
                             <h2>{name}</h2>
-                            <p>{phoneNumber}</p>
-                            <button
-                                value={phoneNumber}
-                                defaultValue={phoneNumber}
-                                onClick={ ({target}) => {
-                                    // console.log(target.value)
-                                    navigator.clipboard.writeText(
-                                        target.value
-                                    )
-                                }
-                                    
-                                }
-                            >
-                                Copy
-                            </button>
-                        </div>
+                            <div className={styles['container-copy']}>
+                                <p>Tel: </p>
+                                <Tooltip
+                                    placement='bottom'
+                                    content='Click para copiar'
+                                    color='invert'
+                                >
+                                    <button
+                                        value={phoneNumber}
+                                        defaultValue={phoneNumber}
+                                        className={styles.button}
+                                        onClick={ (e) => {
+                                            console.log(e.target)
+                                            // navigator.clipboard.writeText(target.value);
+                                            // console.log(target.value)
+                                        }}
+                                    >
+                                        {phoneNumber}
+                                    </button>   
+                                </Tooltip>
+                                                         
+                            </div>
+                        </li>
                     );
                 })}
             </div>

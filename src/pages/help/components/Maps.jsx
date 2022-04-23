@@ -1,4 +1,6 @@
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import React from 'react';
+import { veterinaryData } from '../data.js';
 
 const Maps = () => {
     const { isLoaded } = useJsApiLoader({
@@ -17,12 +19,21 @@ const Maps = () => {
               }}
               zoom={15}
             >
-              { /* Child components, such as markers, info windows, etc. */ }
-              <></>
+                {
+                  veterinaryData.map(({coor, name, numberPhone}) => {
+                    return <Marker key={numberPhone + name} position={coor}
+                        options={{
+                            label: {
+                                text: name
+                            }
+                        }}
+                    />
+                  })
+                }
             </GoogleMap>
         ) : <></>}
     </div>  
     )
 };
 
-export default Maps;
+export default React.memo(Maps);
