@@ -1,12 +1,8 @@
-import { Container } from '@nextui-org/react';
-import styles from './Help.module.css';
+// import { Container } from '@nextui-org/react';
+// import styles from './Help.module.css';
 
 const Help = () => {
-  return (
-    <>
-      Holaaaa amiguitos
-    </>
-  )
+    return <div>Holaaaa amiguitos</div>;
 };
 
 export default Help;

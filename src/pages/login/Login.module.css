@@ -1,4 +1,4 @@
-.container{
+.container {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.container-login{
+.container-login {
     display: flex;
     flex-direction: column;
     min-height: 300px;
@@ -15,16 +15,16 @@
     justify-content: center;
     border: 1px solid var(--shadow-grey);
     border-radius: 5px;
-    box-shadow: 0px 0px 30px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 30px -5px rgba(0, 0, 0, 0.75);
     padding: 1rem;
 }
 
-.container-login h2{
+.container-login h2 {
     margin-bottom: 2rem;
 }
 
-.container-login input{
-    padding: .5rem;
+.container-login input {
+    padding: 0.5rem;
     margin-bottom: 1rem;
 }
 

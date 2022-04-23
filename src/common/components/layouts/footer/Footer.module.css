@@ -1,19 +1,19 @@
-.container{
+.container {
     background-color: grey;
     min-height: 10vh;
     padding: 1rem;
 }
 
-.container h5{
+.container h5 {
     font-size: 1.2rem;
     color: var(--shadow-grey);
 }
 
-.container p{
-    padding: .5rem 0;
+.container p {
+    padding: 0.5rem 0;
     color: white;
 }
 
-.container-info{
+.container-info {
     text-align: center;
 }

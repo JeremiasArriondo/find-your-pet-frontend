@@ -1,36 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-:root{
-  --blue: #008eea;
-  --light-blue: #39a0ff;
-  --dark-blue: #0026e9;
-  --dark-blue-violet: #3b38ff;
-  --cyan: #25f4e9;
-  --shadow-grey: #c2c2c2;
-  --white: #fff;
-  --dark: #000;
-  --dark-light: #333333;
+:root {
+    --blue: #008eea;
+    --light-blue: #39a0ff;
+    --dark-blue: #0026e9;
+    --dark-blue-violet: #3b38ff;
+    --cyan: #25f4e9;
+    --shadow-grey: #c2c2c2;
+    --white: #fff;
+    --dark: #000;
+    --dark-light: #333333;
 }
 
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-h1, h2, h3, h4, h5{
-  color: var(--dark-light);
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--dark-light);
 }
 
 body {
-  font-family: 'Inter', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-a{
-  color: var(--white);
-  text-decoration: none;
+a {
+    color: var(--white);
+    text-decoration: none;
 }

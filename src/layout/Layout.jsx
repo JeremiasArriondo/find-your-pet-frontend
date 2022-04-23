@@ -8,18 +8,18 @@ import styles from './Layout.module.css';
  * Implementa una estructura sencilla
  * El componente Outlet de rrd ayuda a renderizar los componentes hijos
  * Dentro del contenido principal del layour
- * @returns 
+ * @returns
  */
 const Layout = () => {
-  return (
-    <div className={styles.container}>
-        <NavBar/>
-        <div className={styles.content}>
-          <Outlet />
+    return (
+        <div className={styles.container}>
+            <NavBar />
+            <div className={styles.content}>
+                <Outlet />
+            </div>
+            <Footer className={styles.footer} />
         </div>
-        <Footer className={styles['footer']}/>
-    </div>
-  )
+    );
 };
 
 export default Layout;

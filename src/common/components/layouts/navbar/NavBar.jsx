@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
-import { MdPets } from "react-icons/md";
+import { NavLink } from 'react-router-dom';
+import { MdPets } from 'react-icons/md';
 import styles from './NavBar.module.css';
-import { Avatar, Tooltip } from "@nextui-org/react";
-import ContentTooltip from "./components/ContentTooltip";
+import { Avatar, Tooltip } from '@nextui-org/react';
+import ContentTooltip from './components/ContentTooltip';
 /**
  * Este componente conforma la barra de navegación superior
  * En su contenido tiene el logo, los enlaces en la navegación
@@ -10,34 +10,41 @@ import ContentTooltip from "./components/ContentTooltip";
  */
 const NavBar = () => {
     return (
-      <div className={styles['container']}>
-          <div className={styles['logo']}>
-              <MdPets style={{fontSize: '2rem'}}/>
-              <NavLink to={'/'}
-                className={styles['navlink']}
-              >
-                <span>ENCUENTRA TU MASCOTA</span>
-              </NavLink>
-          </div>
-          <div className={styles['container-section']}>
-              <NavLink to={'/pets'}
-                className={({ isActive }) => isActive ? styles['active'] : ''}
-              >Mascotas</NavLink>
-              <NavLink to={'/help'}
-                className={({ isActive }) => isActive ? styles['active'] : ''}
-              >Ayuda</NavLink>
-          </div>
-          <Tooltip placement="bottomEnd" content={<ContentTooltip />}>
-            <Avatar
-              pointer
-              src="/img/unicorn.svg"
-              color='gradient'
-              bordered
-            />
-          </Tooltip>
-          
-      </div>
-    )
-}
+        <div className={styles.container}>
+            <div className={styles.logo}>
+                <MdPets style={{ fontSize: '2rem' }} />
+                <NavLink to={'/'} className={styles.navlink}>
+                    <span>ENCUENTRA TU MASCOTA</span>
+                </NavLink>
+            </div>
+            <div className={styles['container-section']}>
+                <NavLink
+                    to={'/pets'}
+                    className={({ isActive }) =>
+                        isActive ? styles.active : ''
+                    }
+                >
+                    Mascotas
+                </NavLink>
+                <NavLink
+                    to={'/help'}
+                    className={({ isActive }) =>
+                        isActive ? styles.active : ''
+                    }
+                >
+                    Ayuda
+                </NavLink>
+            </div>
+            <Tooltip placement='bottomEnd' content={<ContentTooltip />}>
+                <Avatar
+                    pointer
+                    src='/img/unicorn.svg'
+                    color='gradient'
+                    bordered
+                />
+            </Tooltip>
+        </div>
+    );
+};
 
 export default NavBar;

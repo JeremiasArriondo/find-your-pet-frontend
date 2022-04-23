@@ -1,29 +1,29 @@
-.container{
+.container {
     display: grid;
     grid-template-columns: 1fr 3fr;
     position: relative;
 }
 
-.container-img{
+.container-img {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
 }
 
-.container-img img{
+.container-img img {
     width: 100%;
     object-fit: cover;
 }
 
-.container-search{
+.container-search {
     margin-right: 1rem;
 }
 
 @media (max-width: 450px) {
-    .container-search{
+    .container-search {
         display: none;
     }
-    .container{
+    .container {
         grid-template-columns: 1fr;
     }
 }
