@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { MdPets } from "react-icons/md";
 import styles from './NavBar.module.css';
-import { Avatar } from "@nextui-org/react";
+import { Avatar, Tooltip } from "@nextui-org/react";
+import ContentTooltip from "./components/ContentTooltip";
 /**
  * Este componente conforma la barra de navegación superior
  * En su contenido tiene el logo, los enlaces en la navegación
@@ -26,7 +27,15 @@ const NavBar = () => {
                 className={({ isActive }) => isActive ? styles['active'] : ''}
               >Ayuda</NavLink>
           </div>
-          <Avatar />
+          <Tooltip placement="bottomEnd" content={<ContentTooltip />}>
+            <Avatar
+              pointer
+              src="/img/unicorn.svg"
+              color='gradient'
+              bordered
+            />
+          </Tooltip>
+          
       </div>
     )
 }
