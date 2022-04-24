@@ -25,10 +25,9 @@ const Help = () => {
                                         value={phoneNumber}
                                         defaultValue={phoneNumber}
                                         className={styles.button}
-                                        onClick={ (e) => {
-                                            console.log(e.target)
-                                            // navigator.clipboard.writeText(target.value);
-                                            // console.log(target.value)
+                                        onClick={ ({target}) => {
+                                            navigator.clipboard.writeText(target.value);
+                                            console.log(target.value)
                                         }}
                                     >
                                         {phoneNumber}
