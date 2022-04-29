@@ -27,8 +27,8 @@ export const veterinaryData = [
         name: 'Peluquería Canina Rojas',
         phoneNumber: 2474419353,
         coor: {
-            lat: -34.194135712198914,
-            lng: -60.735406111348276
+            lat: -34.19467543773678,
+            lng: -60.73696896750477
         }
     }
 ]

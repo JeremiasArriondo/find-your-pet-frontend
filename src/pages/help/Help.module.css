@@ -33,3 +33,9 @@
 .button:active{
     background-color: var(--dark-blue);
 }
+
+@media (max-width: 650px) {
+    .container{
+        grid-template-columns: 1fr;
+    }
+}

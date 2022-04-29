@@ -7,7 +7,6 @@ const Maps = () => {
         id: 'google-map-script',
         googleMapsApiKey: import.meta.env.VITE_APP_KEY_GOOGLE_MAPS
     });
-    console.log(import.meta.env.VITE_APP_KEY_GOOGLE_MAPS)
     return (
         <div style={{height: '100vh'}}>
             {isLoaded ? (
