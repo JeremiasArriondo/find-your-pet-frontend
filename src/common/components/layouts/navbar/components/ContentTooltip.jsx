@@ -1,9 +1,10 @@
 import { Button } from '@nextui-org/react';
 import { Link } from 'react-router-dom';
+import styles from './ContentTooltip.module.css';
 
 const ContentTooltip = () => {
     return (
-        <div>
+        <div className={styles['container-content']}>
             <Link to={'/profile'}>
                 <Button>Ir a Perfil</Button>
             </Link>
