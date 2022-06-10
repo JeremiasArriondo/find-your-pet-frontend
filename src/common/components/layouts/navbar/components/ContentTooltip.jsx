@@ -1,10 +1,16 @@
 import { Button } from '@nextui-org/react';
+import { Link } from 'react-router-dom';
+import styles from './ContentTooltip.module.css';
 
 const ContentTooltip = () => {
     return (
-        <div>
-            <Button>Ir a Perfil</Button>
-            <Button>Cerrar sesión</Button>
+        <div className={styles['container-content']}>
+            <Link to={'/profile'}>
+                <Button>Ir a Perfil</Button>
+            </Link>
+            <Link to={'/login'}>
+                <Button>Cerrar sesión</Button>
+            </Link>
         </div>
     );
 };

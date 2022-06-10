@@ -1,5 +1,6 @@
 .container {
-    background-color: grey;
+    background: rgb(0, 0, 0, 0.5);
+    backdrop-filter: saturate(180%) blur(18px);
     min-height: 10vh;
     padding: 1rem;
 }
