@@ -19,6 +19,8 @@ const Register = () => {
         console.log( formValues )
     }
 
+    
+
     return (
         <div className={styles['container']}>
             <form className={styles['container-register']} onSubmit={ handleSubmit } >
@@ -66,7 +68,7 @@ const Register = () => {
                     value={ password }
                     onChange={ handleInputCHange }
                 />
-                <label htmlFor='passwordConfirm'>Contraseña: </label>
+                {/* <label htmlFor='passwordConfirm'>Contraseña: </label>
                 <input
                     id='passwordConfirm'
                     type='password'
@@ -76,7 +78,7 @@ const Register = () => {
                     autoComplete='off'
                     value={ passwordConfirm }
                     onChange={ handleInputCHange }
-                />
+                /> */}
                 <Button style={{width: '100%'}} type='submit'>Registrar</Button>
             </form>
         </div>
