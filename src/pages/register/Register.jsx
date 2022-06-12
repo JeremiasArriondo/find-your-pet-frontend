@@ -4,7 +4,7 @@ import styles from './Register.module.css';
 
 const Register = () => {
 
-    const [ formValues, handleInputCHange] = useForm({
+    const [ formValues, handleInputChange] = useForm({
         name: '',
         lastName: '',
         email: '',
@@ -33,7 +33,7 @@ const Register = () => {
                     minLength={3}
                     placeholder='Ingresa tu nombre'
                     value={ name }
-                    onChange={ handleInputCHange }    
+                    onChange={ handleInputChange }    
                 />
                 <label htmlFor='LastName'>Apellido: </label>
                 <input
@@ -43,7 +43,7 @@ const Register = () => {
                     minLength={3}
                     placeholder='Ingresá tu apellido'
                     value={ lastName }
-                    onChange={ handleInputCHange }
+                    onChange={ handleInputChange }
                 />
                 <label htmlFor='Email'>Email: </label>
                 <input
@@ -55,7 +55,7 @@ const Register = () => {
                     placeholder='tucorreo@email.com'
                     value={ email }
                     title='Por favor, ingrese una dirección de correo válida'
-                    onChange={ handleInputCHange }
+                    onChange={ handleInputChange }
                 />
                 <label htmlFor='Password'>Contraseña: </label>
                 <input 
@@ -66,7 +66,7 @@ const Register = () => {
                     autoComplete='off'
                     minLength={6}
                     value={ password }
-                    onChange={ handleInputCHange }
+                    onChange={ handleInputChange }
                 />
                 {/* <label htmlFor='passwordConfirm'>Contraseña: </label>
                 <input
@@ -77,7 +77,7 @@ const Register = () => {
                     minLength={6}
                     autoComplete='off'
                     value={ passwordConfirm }
-                    onChange={ handleInputCHange }
+                    onChange={ handleInputChange }
                 /> */}
                 <Button style={{width: '100%'}} type='submit'>Registrar</Button>
             </form>

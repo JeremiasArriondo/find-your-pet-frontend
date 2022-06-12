@@ -1,4 +1,4 @@
-const baseUrl = process.env.REACT_APP_API_URL;
+const baseUrl = import.meta.env.VITE_API_URL;
 
 /**
  * Funciones que se encargan de hacer las peticiones HTTP correspondientes segun el metodo recibido

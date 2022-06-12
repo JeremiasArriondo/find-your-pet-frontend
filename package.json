@@ -12,6 +12,7 @@
   "dependencies": {
     "@nextui-org/react": "^1.0.8-beta.5",
     "@react-google-maps/api": "^2.8.1",
+    "dotenv": "^16.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-google-login": "^5.2.2",
