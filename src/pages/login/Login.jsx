@@ -19,9 +19,8 @@ const Login = () => {
 
     const onFinish = (e) => {
         e.preventDefault();
-        console.log(email, password)
         loginUser(email, password);
-        // navigate('/');
+        navigate('/');
     }
 
     return (

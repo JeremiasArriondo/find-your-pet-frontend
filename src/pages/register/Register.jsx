@@ -1,25 +1,52 @@
 import { Button } from '@nextui-org/react';
+import swal from 'sweetalert';
+import { fetchWithToken } from '../../helpers/fetch';
 import useForm from '../../hooks/useForm';
 import styles from './Register.module.css';
 
+const initialState = {
+    name: '',
+    lastname: '',
+    email: '',
+    password: '',
+    passwordConfirm: ''
+}
+
 const Register = () => {
 
-    const [ formValues, handleInputChange] = useForm({
-        name: '',
-        lastName: '',
-        email: '',
-        password: '',
-        passwordConfirm: ''
-    });
+    const [ formValues, handleInputChange, resetFields] = useForm(initialState);
 
-    const { name,lastName, email, password, passwordConfirm } = formValues;
+    const { name, lastname, email, password, passwordConfirm } = formValues;
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log( formValues )
-    }
-
-    
+        e.preventDefault();
+        try {
+            fetchWithToken('user', formValues , 'POST')
+					.then((resp) => {
+						if (resp.status) {
+							console.log('Usuario creado con éxito');
+                            swal({
+                                title: "Bienvenid@!!",
+                                text: "Tu usuario fue creado con éxito! Ya puedes iniciar sesión con tu nueva cuenta",
+                                icon: "success",
+                            });
+                            resetFields();
+						} else {
+							const [msg] = resp.errors;
+							swal({
+                                title: "OOOPS!",
+                                text: `${msg.msg}`,
+                                icon: "error",
+                            });
+						}
+					})
+					.catch(() => {
+						console.log('No es posible crear el usuario');
+					});
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
     return (
         <div className={styles['container']}>
@@ -35,14 +62,14 @@ const Register = () => {
                     value={ name }
                     onChange={ handleInputChange }    
                 />
-                <label htmlFor='LastName'>Apellido: </label>
+                <label htmlFor='Lastname'>Apellido: </label>
                 <input
-                    id='LastName'
+                    id='Lastname'
                     type='text'
-                    name='lastName'
+                    name='lastname'
                     minLength={3}
                     placeholder='Ingresá tu apellido'
-                    value={ lastName }
+                    value={ lastname }
                     onChange={ handleInputChange }
                 />
                 <label htmlFor='Email'>Email: </label>
