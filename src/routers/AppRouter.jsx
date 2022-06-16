@@ -7,6 +7,8 @@ import NotFound from '../pages/notFound/NotFound';
 import Profile from '../pages/profile/Profile';
 import Pets from '../pages/pets/Pets';
 import Register from '../pages/register/Register';
+import Buscados from '../pages/petsWanted/Buscados';
+import Encontrados from '../pages/petsFound/Encontrados';
 
 const AppRouter = () => {
     return (
@@ -21,6 +23,8 @@ const AppRouter = () => {
                 <Route path='' element={<Layout />}>
                     <Route path='pets' element={<Pets />} />
                     <Route path='home' element={<Home />} />
+                    <Route path='find' element={<Encontrados />} />
+                    <Route path='wanted' element={<Buscados />} />
                     <Route path='help' element={<Help />} />
                     <Route path='profile' element={<Profile/>} />
                 </Route>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-// import { fetchWithToken } from '../helpers/fetch';
-// import { useAuth } from '../auth/useAuth';
+import { fetchWithToken } from '../helpers/fetch';
+import { useAuth } from '../auth/useAuth';
 
 /**
  * Hook personalizado useFetch el cual recibe la url a la que se le va a realizar la petición HTTP correspondiente,

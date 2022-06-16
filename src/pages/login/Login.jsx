@@ -1,6 +1,6 @@
 import { Drawer } from '@mui/material';
 import { Button, Modal, Text } from '@nextui-org/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../auth/useAuth';
 import useForm from '../../hooks/useForm';
@@ -12,7 +12,7 @@ const Login = () => {
 
     const [visible, setVisible] = useState(false);
 
-    const { loginUser, error } = useAuth();
+    const { loginUser, error, login } = useAuth();
     const navigate = useNavigate();
 
     const [formValues, handleInputChange] = useForm({
@@ -27,8 +27,13 @@ const Login = () => {
     const onFinish = (e) => {
         e.preventDefault();
         loginUser(email, password);
-        navigate('/');
+        // navigate('/');
     }
+
+    useEffect(() => {
+        {login && navigate('/')};
+    }, [login])
+    
 
     return (
         <>
@@ -57,6 +62,10 @@ const Login = () => {
                         value= { password }
                         onChange={ handleInputChange }
                     />
+                    { error
+                        ? <p className={styles.error}>{error}</p>
+                        : <br/>
+                    }
                     <Button type='submit' color={'secondary'}>Ingresar</Button>
                     <h3>¿No tiene una cuenta?</h3>
                 </form>

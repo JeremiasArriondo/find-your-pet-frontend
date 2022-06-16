@@ -33,7 +33,7 @@
 }
 
 .form-login h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-login h3{
@@ -48,9 +48,19 @@
     text-decoration: underline;
 }
 
-.form-login input {
+.form-login input:nth-child(2){
     padding: 0.5rem;
     margin-bottom: 1rem;
+}
+
+.form-login input:nth-child(3) {
+    padding: 0.5rem;
+}
+
+.error{
+    color: red;
+    font-size: .8em;
+    padding: .2rem;
 }
 
 /* input:focus{

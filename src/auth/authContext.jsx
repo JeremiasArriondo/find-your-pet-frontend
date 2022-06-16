@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
 	);
 	const [error, setError] = useState(null);
 	const [fullName, setFullName] = useState('');
+	const [login, setLogin] = useState(false);
 	/**
 	 * Esta función devuelve un valor booleano sea cual sea el caso
 	 * Tanto si existe o no el usuario.
@@ -50,15 +51,15 @@ const AuthProvider = ({ children }) => {
 			);
 
 			const { data, status } = dataFromBack;
-
 			if (status) {
 				let { token, user } = data;
 				setTokenStorage(token);
 				setTokenIniDate(new Date());
 				setUserContext(user);
 				setError(null);
+				setLogin(true);
 			} else {
-				setError('Datos invalidos');
+				setError('Email o contraseña incorrectos');
 			}
 		} catch (catchedError) {
 			setError(`${catchedError}`);
@@ -106,6 +107,7 @@ const AuthProvider = ({ children }) => {
 	const contextValues = {
 		userContext,
 		error,
+		login,
 		registerUser,
 		isLogged,
 		hasRole,

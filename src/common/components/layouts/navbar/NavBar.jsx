@@ -27,6 +27,22 @@ const NavBar = () => {
                     Mascotas
                 </NavLink>
                 <NavLink
+                    to={'/find'}
+                    className={({ isActive }) =>
+                        isActive ? styles.active : ''
+                    }
+                >
+                    Encontradas
+                </NavLink>
+                <NavLink
+                    to={'/wanted'}
+                    className={({ isActive }) =>
+                        isActive ? styles.active : ''
+                    }
+                >
+                    Buscadas
+                </NavLink>
+                <NavLink
                     to={'/help'}
                     className={({ isActive }) =>
                         isActive ? styles.active : ''

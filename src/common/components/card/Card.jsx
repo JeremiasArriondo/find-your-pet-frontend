@@ -1,6 +1,6 @@
 import { Card, Col, Row, Button, Text } from '@nextui-org/react';
 
-const CardPets = () => {
+const CardPets = ({description, image, typePublication, ...rest}) => {
     return (
         <Card cover css={{ w: '100%' }}>
             <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
@@ -11,13 +11,13 @@ const CardPets = () => {
                         transform='uppercase'
                         color='#ffffffAA'
                     >
-                        Perdido!
+                        {typePublication}
                     </Text>
                 </Col>
             </Card.Header>
             <Card.Body>
                 <Card.Image
-                    src='/img/mockup2.jpeg'
+                    src={image}
                     height={400}
                     width='100%'
                     alt='Card example background'
@@ -37,7 +37,7 @@ const CardPets = () => {
                 <Row>
                     <Col>
                         <Text color='#000' size={12}>
-                            Encontrado el dia viernes, por calle Lavalle
+                            {description}
                         </Text>
                     </Col>
                     <Col>
