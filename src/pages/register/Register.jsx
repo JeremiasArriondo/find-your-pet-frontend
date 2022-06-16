@@ -1,4 +1,5 @@
 import { Button } from '@nextui-org/react';
+import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { fetchWithToken } from '../../helpers/fetch';
 import useForm from '../../hooks/useForm';
@@ -12,11 +13,13 @@ const initialState = {
     passwordConfirm: ''
 }
 
-const Register = () => {
+const Register = ({closeModal}) => {
 
     const [ formValues, handleInputChange, resetFields] = useForm(initialState);
 
     const { name, lastname, email, password, passwordConfirm } = formValues;
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,14 +32,17 @@ const Register = () => {
                                 title: "Bienvenid@!!",
                                 text: "Tu usuario fue creado con éxito! Ya puedes iniciar sesión con tu nueva cuenta",
                                 icon: "success",
+                                timer: 3000
                             });
                             resetFields();
+                            closeModal()
 						} else {
 							const [msg] = resp.errors;
 							swal({
                                 title: "OOOPS!",
                                 text: `${msg.msg}`,
                                 icon: "error",
+                                timer: 3000
                             });
 						}
 					})
@@ -49,9 +55,8 @@ const Register = () => {
     };
 
     return (
-        <div className={styles['container']}>
+        // <div className={styles['container']}>
             <form className={styles['container-register']} onSubmit={ handleSubmit } >
-                <h1>Registro</h1>
                 <label htmlFor='Name'>Nombre: </label>
                 <input
                     id='Name'
@@ -108,7 +113,7 @@ const Register = () => {
                 /> */}
                 <Button style={{width: '100%'}} type='submit'>Registrar</Button>
             </form>
-        </div>
+        // </div>
   )
 }
 

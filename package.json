@@ -10,6 +10,9 @@
     "lint": "eslint --fix . --ext .js,.jsx"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.4",
     "@nextui-org/react": "^1.0.8-beta.5",
     "@react-google-maps/api": "^2.8.1",
     "dotenv": "^16.0.1",
