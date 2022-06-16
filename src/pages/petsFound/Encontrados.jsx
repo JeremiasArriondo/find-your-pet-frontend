@@ -1,7 +1,11 @@
+import ButtonsPost from "../../common/components/floatButton/ButtonsPost";
+import styles from './styles.module.css';
 
 const Encontrados = () => {
   return (
-    <div>Encontrados</div>
+    <div className={styles.container}>
+        <ButtonsPost />
+    </div>
   )
 };
 
