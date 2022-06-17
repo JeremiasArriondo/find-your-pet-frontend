@@ -23,20 +23,6 @@ const AuthProvider = ({ children }) => {
 	const isLogged = () => (userContext ? true : false);
 
 	/**
-	 * Al ser invocada recibe un ROL de la constante de roles
-	 * Si existe el rol, entonces lo compara con el rol del usuario
-	 */
-	const hasRole = (role) => role && userContext?.rol === role;
-
-	/**
-	 * función que evalúa si el usuario logueado ya cambio su contraseña
-	 * por primera vez
-	 */
-	const firstPasswordChange = () => {
-		setUserContext({ ...userContext, firstPasswordUpdated: true });
-	};
-
-	/**
 	 * Al ser invocada recibe un emaily contraseña
 	 * Si el usuario fue validado es habiltado para utilizar la apliación
 	 * Sino se muestra el mensaje de error
@@ -96,27 +82,16 @@ const AuthProvider = ({ children }) => {
 		}
 	};
 
-	const registerUser = (email, password) => {
-		if (!email || !password) {
-			return;
-		}
-
-		setUserContext({ ...userContext, email, password });
-	};
-
 	const contextValues = {
 		userContext,
 		error,
 		login,
-		registerUser,
 		isLogged,
-		hasRole,
 		loginUser,
 		logoutUser,
 		tokenStorage,
 		tokenIniDate,
 		refreshTokenOrClose,
-		firstPasswordChange,
 		fullName,
 		setFullName,
 	};
