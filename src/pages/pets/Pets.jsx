@@ -16,8 +16,6 @@ const Pets = () => {
         }
     }, [posts])
 
-    console.log(publications)
-
     return (
         <div className={styles.container}>
             <div className={styles['container-search']}>
