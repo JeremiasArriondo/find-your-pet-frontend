@@ -47,18 +47,6 @@
     font-family: inherit;
 }
 
-input[type=submit]{
-    margin-top: .5rem;
-    cursor: pointer;
-    color: #7828c8;
-    font-size: 1.4rem;
-    background-color: var(--shadow-grey);
-}
-
-input[type=submit]:hover{
-    background-color: #a8a8a8;
-}
-
 input[type="file"]{
     color: #fff;
     border: none;
@@ -68,13 +56,14 @@ input[type="file"]{
     display: flex;
     flex-direction: row;
     align-items: center;
+    border: 2px solid var(--shadow-grey);
 }
 
 .custom-file-input::-webkit-file-upload-button {
     visibility: hidden;
-  }
+}
 
-  .custom-file-input::before {
+.custom-file-input::before {
     content: 'Subí una imagen';
     color: #7828c8;
     display: inline-block;
@@ -86,11 +75,40 @@ input[type="file"]{
     cursor: pointer;
     font-size: .8rem;
     outline: none;
-  }
-  .custom-file-input:hover::before {
+}
+.custom-file-input:hover::before {
     /* border-color: black; */
     background-color: #f7f4f4;
-  }
-  .custom-file-input:active::before {
+}
+.custom-file-input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-  }
+}
+
+.container-btn{
+    width: 100%;
+    display: flex;
+}
+
+.container-btn button{
+    display: inline-block;
+    width: 100%;
+    padding: .5rem;
+    cursor: pointer;
+    color: #7828c8;
+    font-size: 1rem;
+    background-color: var(--shadow-grey);
+    border: none;
+}
+
+.container-btn button:hover{
+    background-color: #a8a8a8;
+}
+
+.container-btn .cancel-btn{
+    color: #fff;
+    background-color:#EC5757;
+}
+
+.container-btn .cancel-btn:hover{
+    background-color: #AA3333;
+}
