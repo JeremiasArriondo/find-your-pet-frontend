@@ -10,7 +10,7 @@ const ButtonsPost = () => {
     const [open, setOpen] = useState(false);
 
     const [file, setFile] = useState(null);
-    const [fileDataURL, setFileDataURL] = useState({});
+    const [fileDataURL, setFileDataURL] = useState(null);
 
     const { userContext } = useAuth()
     
@@ -33,7 +33,6 @@ const ButtonsPost = () => {
 
     const fileUpload = (e) => {
         setFile(e.target.files[0]);
-        setFilePreview({filepreview:URL.createObjectURL(e.target.files[0])})
     }
 
     useEffect(() => {
@@ -76,15 +75,20 @@ const ButtonsPost = () => {
                 >
                     <legend className={styles['legend']}>Crea una publicación</legend>
                     <label htmlFor="imagen" >Imagen: </label>
-                    <input
-                        type="file"
-                        id="imagen"
-                        name="imagen"   
-                        onChange={ (e) => fileUpload(e) }
-                        required
-                    />
-                    <img src={fileDataURL} style={{objectFit: 'cover'}} width={300} height={150} />
-                    <label htmlFor="contactPhone" >Contacto: </label>
+                    <fieldset className={styles['container-imagen']}>
+                        <input
+                            type="file"
+                            id="imagen"
+                            name="imagen"   
+                            onChange={ (e) => fileUpload(e) }
+                            required
+                            className={styles['custom-file-input']}
+                        />
+                        {fileDataURL &&
+                            <img src={fileDataURL} style={{objectFit: 'cover'}} width={120} height={60} />}
+                    </fieldset>
+                    
+                    <label htmlFor="contactPhone" >Contacto (tel): </label>
                     <input
                         type="text"
                         id="contactPhone"
