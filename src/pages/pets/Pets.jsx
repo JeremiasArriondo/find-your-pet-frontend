@@ -21,7 +21,7 @@ const Pets = () => {
         <div className={styles.container}>
             <div className={styles['container-search']}>
                 <Input
-                    label='Busca por lo que sea'
+                    label='Buscame'
                     type='search'
                     width='100%'
                     status='secondary'

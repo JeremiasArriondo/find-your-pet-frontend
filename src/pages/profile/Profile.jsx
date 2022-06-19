@@ -2,12 +2,19 @@ import { Button, Dialog, DialogTitle } from '@mui/material';
 import { Loading } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import swal from 'sweetalert';
+import { useAuth } from '../../auth/useAuth';
 import CardCustom from '../../common/components/card/CardCustom';
 import { fetchWithToken } from '../../helpers/fetch';
 import useFetch from '../../hooks/useFetch';
 import styles from './Profile.module.css';
 
 const Profile = () => {
+
+    const { userContext } = useAuth();
+
+    const {isLoading: isLoadingUser, data: dataUser, error: errorUser} = useFetch(`user/${userContext.id}`);
+
+    const [userData, setUserData] = useState({});
 
     const { isLoading, data, error, refresh } = useFetch('user/publications');
 
@@ -22,13 +29,19 @@ const Profile = () => {
             setUserPublications(data.data)
         };
     }, [data]);
+
+    useEffect(() => {
+        if(dataUser?.data){
+            setUserData(dataUser.data)
+        };
+    }, [dataUser]);
     
     const deletePublication = (id) => {
         fetchWithToken(`publication/${id}`, {}, 'DELETE')
                 .then((resp) => {
                     if(resp.status){
                         swal({
-                            title: "Éxitooo",
+                            title: "Éxito",
                             text: "Tu publicación fue eliminada con éxito!",
                             icon: "success",
                             timer: 3000
@@ -52,13 +65,15 @@ const Profile = () => {
     <div className={styles.container}>
         <div className={styles.profile}>
             <h2>Mi perfil</h2>
-            <ul>
-                <li>Jeremias Arriondo</li>
-                <li>jeremias98@gmail.com</li>
-                <li>Tel: 11223344</li>
-                <li>Cuidad: Rojas</li>
-            </ul>
-            <p>Info: usuario con experiencia, realiza posteos diariamente</p>
+            {isLoading
+                ? <Loading color="secondary" size="md">Cargando...</Loading>
+                : (Object.keys(userData).length > 0 &&
+                    <ul>
+                        {userData.fullName && <li>{userData.fullName}</li>}
+                        {userData.email && <li>{userData.email}</li>}
+                        {userData.phone && <li>Tel: {userData.phone}</li>}
+                    </ul>)
+            }
         </div>
         <div className={styles['container-publications']}>
             <h3>Mis publicaciones: </h3>

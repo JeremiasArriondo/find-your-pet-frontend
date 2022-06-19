@@ -17,12 +17,10 @@
 
 .container-search {
     margin-right: 1rem;
+    margin-bottom: 1rem;
 }
 
-@media (max-width: 450px) {
-    .container-search {
-        display: none;
-    }
+@media (max-width: 650px) {
     .container {
         grid-template-columns: 1fr;
     }
