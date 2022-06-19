@@ -23,7 +23,7 @@ const ButtonsPost = () => {
 
     const {description, contactPhone, place, typePublication} = values;
 
-    const showModal = () => setOpen(!open);
+    const showModal = () => setOpen(true);
 
     const hideModal = () => setOpen(false);
 
@@ -85,7 +85,7 @@ const ButtonsPost = () => {
         setFileDataURL(null);
         resetFields();
         hideModal();
-    }
+    };
 
     useEffect(() => {
         let fileReader, isCancel = false;
@@ -106,8 +106,6 @@ const ButtonsPost = () => {
         }
     }, [file]);
 
-    console.log(open)
-
     return (
         <div className={styles['position']}>
             <button className={styles['button']}
@@ -119,7 +117,7 @@ const ButtonsPost = () => {
             </button>
             <Modal
                 open={open}
-                onClose={showModal}
+                onClose={hideModal}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
@@ -178,9 +176,8 @@ const ButtonsPost = () => {
                         value={description}
                         onChange={ handleInputChange }
                     />
-                    <button type="reset" onClick={ () => setOpen(false)} className={styles['cancel-btn']} >Cancelar</button>
                     <div className={styles['container-btn']}>
-                        <button type="reset" onClose={ () => setOpen(false)} className={styles['cancel-btn']} >Cancelar</button>
+                        <button type="reset" onClick={cancelPost} className={styles['cancel-btn']} >Cancelar</button>
                         <button type="submit">Guardar</button>
                     </div>
                 </form>

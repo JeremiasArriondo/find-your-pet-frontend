@@ -1,6 +1,7 @@
 import { Checkbox, Input, Loading } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import CardPets from '../../common/components/card/Card';
+import CardCustom from '../../common/components/card/CardCustom';
 import useFetch from '../../hooks/useFetch';
 import styles from './Pets.module.css';
 
@@ -25,21 +26,13 @@ const Pets = () => {
                     width='100%'
                     status='secondary'
                 />
-                <Checkbox
-                    color='secondary'
-                    labelColor='secondary'
-                    initialChecked={true}
-                >
-                    Secondary
-                </Checkbox>
             </div>
-            
             <div className={styles['container-img']}>
                {isLoading
                     ? <Loading color="secondary" size="md">Cargando...</Loading>
                     : (publications?.length > 0 && publications?.map(({description, image, typePublication}) => {
                         return (
-                            <CardPets
+                            <CardCustom
                                 description={description}
                                 image={image}
                                 typePublication={typePublication}

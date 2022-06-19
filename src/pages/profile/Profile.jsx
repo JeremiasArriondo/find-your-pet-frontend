@@ -14,7 +14,7 @@ const Profile = () => {
         <p>Info: usuario con experiencia, realiza posteos diariamente</p>
       </div>
       <div className={styles.publication}>
-        Mis publicaciones
+        
       </div>
     </div>
   )
