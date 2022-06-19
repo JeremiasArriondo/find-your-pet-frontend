@@ -1,5 +1,6 @@
+import { Button, Dialog, DialogTitle } from '@mui/material';
 import { Loading } from '@nextui-org/react';
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import swal from 'sweetalert';
 import CardCustom from '../../common/components/card/CardCustom';
 import { fetchWithToken } from '../../helpers/fetch';
@@ -11,12 +12,16 @@ const Profile = () => {
     const { isLoading, data, error, refresh } = useFetch('user/publications');
 
     const [userPublications, setUserPublications] = useState([]);
+
+    const [open, setOpen] = useState(false);
+
+    const showModal = () => setOpen(!open);
     
     useEffect(() => {
         if(data?.data){
             setUserPublications(data.data)
-        }
-    }, [data])
+        };
+    }, [data]);
     
     const deletePublication = (id) => {
         fetchWithToken(`publication/${id}`, {}, 'DELETE')
@@ -71,17 +76,27 @@ const Profile = () => {
                                         image={image}
                                         typePublication={typePublication}
                                     />
-                                    <button className={styles['cancel-btn']}
-                                        onClick={() => deletePublication(_id)}
+                                    <button className={styles['delete-btn']}
+                                        onClick={showModal}
                                     >Borrar</button>
+                                    <Dialog onClick={showModal} open={open}>
+                                        <DialogTitle>¿Seguro que desea borrar la publicación?</DialogTitle>
+                                        <div className={styles['container-dialog']}>
+                                            <button className={styles['cancel-btn']} onClick={showModal}>
+                                                Cancelar
+                                            </button>
+                                            <button className={styles['delete-btn']}
+                                                onClick={() => deletePublication(_id)}
+                                            >Borrar</button>
+                                        </div>
+                                    </Dialog>
                                 </div>                         
                             )
                         })
                     )
                     }
-            </div>
-        </div>
-        
+            </div>    
+        </div>      
     </div>
     )
 }

@@ -42,13 +42,45 @@
     border: none;
 }
 
-.container-btn .cancel-btn{
+.container-btn .delete-btn{
     color: #fff;
     background-color:#EC5757;
 }
 
-.container-btn .cancel-btn:hover{
+
+.container-btn .delete-btn:hover{
     background-color: #AA3333;
+}
+
+.container-dialog{
+    display: flex;
+}
+
+.container-dialog button{
+    display: inline-block;
+    width: 100%;
+    padding: .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+}
+
+.container-dialog .delete-btn{
+    color: #fff;
+    background-color:#EC5757;
+}
+
+.container-dialog .delete-btn:hover{
+    background-color: #AA3333;
+}
+
+.container-dialog .cancel-btn{
+    color: #fff;
+    background-color: var(--shadow-grey);
+}
+
+.container-dialog .cancel-btn:hover{
+    background-color: #a8a8a8;
 }
 
 @media (max-width: 450px) {
