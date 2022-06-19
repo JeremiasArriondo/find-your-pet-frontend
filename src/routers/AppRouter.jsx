@@ -9,20 +9,30 @@ import Pets from '../pages/pets/Pets';
 import Register from '../pages/register/Register';
 import Buscados from '../pages/petsWanted/Buscados';
 import Encontrados from '../pages/petsFound/Encontrados';
+import RedirectLogin from './RedirectLogin';
+import PrivateRoute from './PrivateRoute';
 
 const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/login'>
-                    <Route path='' element={<Login />} />
+                    <Route path=''
+                        element={
+                        <RedirectLogin>
+                            <Login />
+                        </RedirectLogin>
+                        }
+                    />
                 </Route>
-                <Route path='/register'>
-                    <Route path='' element={ <Register/> } />
-                </Route>
-                <Route path='' element={<Layout />}>
+                <Route path=''
+                    element={
+                    <PrivateRoute>
+                        <Layout />
+                    </PrivateRoute>
+                    }>
+                    <Route index element={<Home />} />
                     <Route path='pets' element={<Pets />} />
-                    <Route path='home' element={<Home />} />
                     <Route path='find' element={<Encontrados />} />
                     <Route path='wanted' element={<Buscados />} />
                     <Route path='help' element={<Help />} />
