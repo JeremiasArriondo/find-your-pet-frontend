@@ -27,11 +27,10 @@ const Login = () => {
     const onFinish = (e) => {
         e.preventDefault();
         loginUser(email, password);
-        // navigate('/');
     }
 
     useEffect(() => {
-        {login && navigate('/')};
+        {login && navigate('/pets')};
     }, [login])
     
 

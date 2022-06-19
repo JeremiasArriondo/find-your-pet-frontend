@@ -24,7 +24,7 @@ const NavBar = () => {
         <div className={styles.container}>
             <div className={styles.logo}>
                 <MdPets style={{ fontSize: '2rem' }} />
-                <NavLink to={'/'} className={styles.navlink}>
+                <NavLink to={'/pets'} className={styles.navlink}>
                     <span>ENCUENTRA TU MASCOTA</span>
                 </NavLink>
             </div>
