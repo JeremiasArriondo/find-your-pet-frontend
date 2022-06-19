@@ -1,5 +1,6 @@
 import { Loading } from '@nextui-org/react';
 import { Fragment, useEffect, useState } from 'react';
+import swal from 'sweetalert';
 import CardCustom from '../../common/components/card/CardCustom';
 import { fetchWithToken } from '../../helpers/fetch';
 import useFetch from '../../hooks/useFetch';
@@ -21,9 +22,20 @@ const Profile = () => {
         fetchWithToken(`publication/${id}`, {}, 'DELETE')
                 .then((resp) => {
                     if(resp.status){
-                        console.log('Eliminado con exito')
+                        swal({
+                            title: "Éxitooo",
+                            text: "Tu publicación fue eliminada con éxito!",
+                            icon: "success",
+                            timer: 3000
+                        });
+                        refresh();
                     } else{
-                        console.log('NO SE PUDO ELIMINAR')
+                        swal({
+                            title: "OOOPS!",
+                            text: "No ha sido posible eliminar la publicación, reintente nuevamente",
+                            icon: "error",
+                            timer: 3000
+                        })
                     };
                 })
                 .catch((e) => {
@@ -43,29 +55,33 @@ const Profile = () => {
             </ul>
             <p>Info: usuario con experiencia, realiza posteos diariamente</p>
         </div>
-        <div className={styles['container-publication']}>
-            {isLoading
-                    ? <Loading color="secondary" size="md">Cargando...</Loading>
-                    : (userPublications?.length > 0 && userPublications?.map(({description, image, typePublication, _id}) => {
-                        return (
-                            <div
-                                key={_id}
-                                className={styles['container-btn']}
-                            >
-                                <CardCustom
-                                    description={description}
-                                    image={image}
-                                    typePublication={typePublication}
-                                />
-                                <button className={styles['cancel-btn']}
-                                    onClick={() => deletePublication(_id)}
-                                >Borrar</button>
-                            </div>                         
-                        )
-                    })
-                   )
-                }
+        <div className={styles['container-publications']}>
+            <h3>Mis publicaciones: </h3>
+            <div className={styles['container-publication-img']}>
+                {isLoading
+                        ? <Loading color="secondary" size="md">Cargando...</Loading>
+                        : (userPublications?.length > 0 && userPublications?.map(({description, image, typePublication, _id}) => {
+                            return (
+                                <div
+                                    key={_id}
+                                    className={styles['container-btn']}
+                                >
+                                    <CardCustom
+                                        description={description}
+                                        image={image}
+                                        typePublication={typePublication}
+                                    />
+                                    <button className={styles['cancel-btn']}
+                                        onClick={() => deletePublication(_id)}
+                                    >Borrar</button>
+                                </div>                         
+                            )
+                        })
+                    )
+                    }
+            </div>
         </div>
+        
     </div>
     )
 }
