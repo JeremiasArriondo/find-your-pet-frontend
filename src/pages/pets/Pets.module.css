@@ -2,22 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     position: relative;
-}
-
-.container-img {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
-}
-
-.container-img img {
-    width: 100%;
-    object-fit: cover;
-}
-
-.container-search {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
 }
 
 @media (max-width: 650px) {
