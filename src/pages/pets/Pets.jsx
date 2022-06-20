@@ -1,10 +1,7 @@
-import { Checkbox, Input, Loading } from '@nextui-org/react';
-import { FcSearch } from 'react-icons/fc';
 import { useEffect, useState } from 'react';
-import CardCustom from '../../common/components/card/CardCustom';
+import { Loading } from '@nextui-org/react';
 import ContainerCards from '../../common/components/containerCards/ContainerCards';
 import { fetchWithToken } from '../../helpers/fetch';
-import useFetch from '../../hooks/useFetch';
 import styles from './Pets.module.css';
 import Search from '../../common/components/search/Search';
 import NewPublication from '../../common/components/newPublication/NewPublication';

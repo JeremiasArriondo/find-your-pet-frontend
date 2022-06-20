@@ -1,5 +1,4 @@
 import { Button } from '@nextui-org/react';
-import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { fetchWithToken } from '../../helpers/fetch';
 import useForm from '../../hooks/useForm';
@@ -18,8 +17,6 @@ const Register = ({closeModal}) => {
     const [ formValues, handleInputChange, resetFields] = useForm(initialState);
 
     const { name, lastname, email, password, passwordConfirm } = formValues;
-
-    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();

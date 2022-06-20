@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ContainerCards from "../../common/components/containerCards/ContainerCards";
 import NewPublication from "../../common/components/newPublication/NewPublication";
 import useFetch from "../../hooks/useFetch";
-// import styles from './styles.module.css';
 
 const Buscados = () => {
     
@@ -18,8 +17,8 @@ const Buscados = () => {
     console.log(petsWanted)
     return (
       <div>
-        <NewPublication refresh={refresh} />
         <ContainerCards data={publicationsWanted} isLoading={isLoading} />
+        <NewPublication refresh={refresh} />
     </div>
   )
 };

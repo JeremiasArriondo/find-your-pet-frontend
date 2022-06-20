@@ -1,7 +1,7 @@
 import { Drawer } from '@mui/material';
-import { Button, Modal, Text } from '@nextui-org/react';
+import { Button } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../auth/useAuth';
 import useForm from '../../hooks/useForm';
 import Register from '../register/Register';

@@ -77,7 +77,6 @@ const Profile = () => {
             }
         </div>
         <div className={styles['container-publications']}>
-            <NewPublication />
             <h3>Mis publicaciones: </h3>
             <div className={styles['container-publication-img']}>
                 {isLoading
@@ -112,7 +111,8 @@ const Profile = () => {
                         })
                     )
                     }
-            </div>    
+            </div>
+            <NewPublication refresh={refresh}/>  
         </div>      
     </div>
     )

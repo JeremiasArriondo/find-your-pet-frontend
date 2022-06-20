@@ -1,8 +1,7 @@
-import { Button, Checkbox, Dropdown, Input, Modal, Text } from "@nextui-org/react";
+import { Modal } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { FcAddImage } from "react-icons/fc";
 import swal from "sweetalert";
-import { useAuth } from "../../../auth/useAuth";
 import { fetchWithToken } from "../../../helpers/fetch";
 import useForm from "../../../hooks/useForm";
 import styles from './styles.module.css';
