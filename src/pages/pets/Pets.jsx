@@ -15,6 +15,8 @@ const Pets = () => {
 
     const [publications, setPublications] = useState([]);
 
+    const [refreshPublications, setRefreshPublications] = useState(false);
+
     const searchText = (text) => {
         setSearch(text);
     };
@@ -30,6 +32,8 @@ const Pets = () => {
         }
     }
 
+    const refresh = () => setRefreshPublications(true);
+
     useEffect(() => {
         if(search.length <= 1){
             fetchWithToken('publication/all', {search:''}, 'POST')
@@ -41,6 +45,17 @@ const Pets = () => {
         }
     }, [search]);
 
+    useEffect(() => {
+        if(refreshPublications){
+            fetchWithToken('publication/all', {search:''}, 'POST')
+            .then((res) => {
+                if(res.status){
+                    setPublications(res.data.publications)
+                }
+            });
+        }
+    }, [refreshPublications])
+
     return (
         <div className={styles.container}>
             <Search
@@ -49,7 +64,7 @@ const Pets = () => {
                 handleSearch={handleSearch}
             />
             <ContainerCards data={publications} />
-            <NewPublication />
+            <NewPublication refresh={refresh} />
         </div>
     );
 };

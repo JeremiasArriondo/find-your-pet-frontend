@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 
 const Encontrados = () => {
     
-    const { data: petsFound, isLoading, error } = useFetch('publication/found', null, 'GET');
+    const { data: petsFound, isLoading, error, refresh } = useFetch('publication/found', null, 'GET');
     
     const [publicationsFound, setPublicationsFound] = useState([]);
     
@@ -18,7 +18,7 @@ const Encontrados = () => {
     
     return (
       <div className={styles.container}>
-        <NewPublication />
+        <NewPublication refresh={refresh} />
         <ContainerCards data={publicationsFound} isLoading={isLoading}/>
     </div>
   )

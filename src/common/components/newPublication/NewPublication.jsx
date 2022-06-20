@@ -8,7 +8,7 @@ import useForm from "../../../hooks/useForm";
 import styles from './styles.module.css';
 
 
-const NewPublication = () => {
+const NewPublication = ({refresh}) => {
     const [open, setOpen] = useState(false);
 
     const [file, setFile] = useState(null);
@@ -52,6 +52,7 @@ const NewPublication = () => {
                             resetFields();
                             setFile(null);
                             setOpen(false);
+                            refresh();
                         } else {
                             const [msg] = res.errors;
                             swal({

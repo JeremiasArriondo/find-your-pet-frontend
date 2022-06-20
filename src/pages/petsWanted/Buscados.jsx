@@ -6,7 +6,7 @@ import useFetch from "../../hooks/useFetch";
 
 const Buscados = () => {
     
-    const { data: petsWanted, isLoading, error } = useFetch('publication/wanted', null, 'GET');
+    const { data: petsWanted, isLoading, error, refresh } = useFetch('publication/wanted', null, 'GET');
     
     const [publicationsWanted, setPublicationsWanted] = useState([]);
     
@@ -18,7 +18,7 @@ const Buscados = () => {
     console.log(petsWanted)
     return (
       <div>
-        <NewPublication />
+        <NewPublication refresh={refresh} />
         <ContainerCards data={publicationsWanted} isLoading={isLoading} />
     </div>
   )
