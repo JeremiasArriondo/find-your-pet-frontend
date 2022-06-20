@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ContainerCards from "../../common/components/containerCards/ContainerCards";
-import ButtonsPost from "../../common/components/floatButton/ButtonsPost";
+import NewPublication from "../../common/components/newPublication/NewPublication";
 import useFetch from "../../hooks/useFetch";
 import styles from './styles.module.css';
 
@@ -18,8 +18,8 @@ const Encontrados = () => {
     
     return (
       <div className={styles.container}>
-        <ButtonsPost />
-        <ContainerCards data={publicationsFound} />
+        <NewPublication />
+        <ContainerCards data={publicationsFound} isLoading={isLoading}/>
     </div>
   )
 };

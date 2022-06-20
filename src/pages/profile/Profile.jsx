@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import swal from 'sweetalert';
 import { useAuth } from '../../auth/useAuth';
 import CardCustom from '../../common/components/card/CardCustom';
+import NewPublication from '../../common/components/newPublication/NewPublication';
 import { fetchWithToken } from '../../helpers/fetch';
 import useFetch from '../../hooks/useFetch';
 import styles from './Profile.module.css';
@@ -12,7 +13,7 @@ const Profile = () => {
 
     const { userContext } = useAuth();
 
-    const {isLoading: isLoadingUser, data: dataUser, error: errorUser} = useFetch(`user/${userContext.id}`);
+    const {data: dataUser, error: errorUser} = useFetch(`user/${userContext.id}`);
 
     const [userData, setUserData] = useState({});
 
@@ -76,6 +77,7 @@ const Profile = () => {
             }
         </div>
         <div className={styles['container-publications']}>
+            <NewPublication />
             <h3>Mis publicaciones: </h3>
             <div className={styles['container-publication-img']}>
                 {isLoading

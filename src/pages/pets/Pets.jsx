@@ -7,6 +7,7 @@ import { fetchWithToken } from '../../helpers/fetch';
 import useFetch from '../../hooks/useFetch';
 import styles from './Pets.module.css';
 import Search from '../../common/components/search/Search';
+import NewPublication from '../../common/components/newPublication/NewPublication';
 
 const Pets = () => {
     
@@ -48,6 +49,7 @@ const Pets = () => {
                 handleSearch={handleSearch}
             />
             <ContainerCards data={publications} />
+            <NewPublication />
         </div>
     );
 };

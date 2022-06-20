@@ -8,7 +8,7 @@ import useForm from "../../../hooks/useForm";
 import styles from './styles.module.css';
 
 
-const ButtonsPost = () => {
+const NewPublication = () => {
     const [open, setOpen] = useState(false);
 
     const [file, setFile] = useState(null);
@@ -186,4 +186,4 @@ const ButtonsPost = () => {
     )
 };
 
-export default ButtonsPost
+export default NewPublication;
