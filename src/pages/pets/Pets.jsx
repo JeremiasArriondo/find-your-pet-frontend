@@ -1,21 +1,49 @@
 import { Checkbox, Input, Loading } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
-import CardPets from '../../common/components/card/Card';
 import CardCustom from '../../common/components/card/CardCustom';
+import ContainerCards from '../../common/components/containerCards/ContainerCards';
+import { fetchWithToken } from '../../helpers/fetch';
 import useFetch from '../../hooks/useFetch';
 import styles from './Pets.module.css';
 
 const Pets = () => {
+    
+    const [search, setSearch] = useState('');
 
-    const { data: posts, isLoading, error } = useFetch('publication/all', null, 'GET');
+    // const { data: posts, isLoading, error } = useFetch('publication/all', {search}, 'POST');
 
     const [publications, setPublications] = useState([]);
 
+    const searchText = (e) => setSearch(e.target.value);
+
+    // useEffect(() => {
+    //     if(posts?.data){
+    //         setPublications(posts.data.publications)
+    //     }
+    // }, [posts]);
+
     useEffect(() => {
-        if(posts?.data){
-            setPublications(posts.data.publications)
+        if(search){
+            fetchWithToken('publication/all', {search: search}, 'POST')
+                .then((res) => {
+                    if(res.status){
+                        setPublications(res.data.publications)
+                        console.log(res.data)
+                    }
+                })
+        } else {
+            fetchWithToken('publication/all', {search:''}, 'POST')
+                .then((res) => {
+                    if(res.status){
+                        setPublications(res.data.publications)
+                        console.log(res.data)
+                    }
+                })
         }
-    }, [posts])
+    }, [search]);
+
+    // console.log("FUERA DEL USEEFFECT", publications);
+    // console.log(search)
 
     return (
         <div className={styles.container}>
@@ -23,25 +51,13 @@ const Pets = () => {
                 <Input
                     label='Buscame'
                     type='search'
+                    value={search}
+                    onChange={(e) => searchText(e)}
                     width='100%'
                     status='secondary'
                 />
             </div>
-            <div className={styles['container-img']}>
-               {isLoading
-                    ? <Loading color="secondary" size="md">Cargando...</Loading>
-                    : (publications?.length > 0 && publications?.map(({description, image, typePublication}) => {
-                        return (
-                            <CardCustom
-                                description={description}
-                                image={image}
-                                typePublication={typePublication}
-                            />
-                        )
-                    })
-                   )
-                }
-            </div>
+            <ContainerCards data={publications} />
         </div>
     );
 };

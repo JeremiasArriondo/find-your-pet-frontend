@@ -32,7 +32,7 @@ const AppRouter = () => {
                     </PrivateRoute>
                     }>
                     <Route index path='pets' element={<Pets />} />
-                    <Route path='find' element={<Encontrados />} />
+                    <Route path='found' element={<Encontrados />} />
                     <Route path='wanted' element={<Buscados />} />
                     <Route path='help' element={<Help />} />
                     <Route path='profile' element={<Profile/>} />

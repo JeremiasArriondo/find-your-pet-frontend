@@ -24,7 +24,7 @@ const Footer = () => {
                         <MdSelectAll size={'2rem'}/>
                     </NavLink>
                     <NavLink
-                        to={'/find'}
+                        to={'/found'}
                         className={({ isActive }) =>
                             isActive ? styles.active : ''
                         }

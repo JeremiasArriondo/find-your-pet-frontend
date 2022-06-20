@@ -38,7 +38,7 @@ const NavBar = () => {
                     Mascotas
                 </NavLink>
                 <NavLink
-                    to={'/find'}
+                    to={'/found'}
                     className={({ isActive }) =>
                         isActive ? styles.active : ''
                     }
