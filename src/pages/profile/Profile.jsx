@@ -71,7 +71,7 @@ const Profile = () => {
                 {isLoading
                     ? <Loading color="secondary" size="md">Cargando...</Loading>
                     : (Object.keys(userData).length > 0 &&
-                        <div>
+                        <div className={styles['container-info']}>
                             {userData.fullName && <p>Hola {userData.fullName}!!</p>}
                             <p>Bienvenido a tu perfil</p>
                             {userData.email && <p>Email: {userData.email}</p>}

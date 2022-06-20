@@ -1,5 +1,6 @@
 import { Modal } from "@nextui-org/react";
 import { useEffect, useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import { FcAddImage } from "react-icons/fc";
 import swal from "sweetalert";
 import { fetchWithToken } from "../../../helpers/fetch";
@@ -34,7 +35,7 @@ const NewPublication = ({refresh}) => {
             const formData = new FormData();
             // formData.append(description, contactPhone, place, typePublication)
             formData.append("description", description);
-            formData.append("contactPhone", contactPhone ?? '');
+            formData.append("contactPhone", contactPhone);
             formData.append("place", place ?? '');
             formData.append("typePublication", typePublication);
             formData.append("imagen", file);
@@ -141,11 +142,12 @@ const NewPublication = ({refresh}) => {
                             <img src={fileDataURL} style={{objectFit: 'cover'}} width={120} height={60} />}
                     </fieldset>
                     
-                    <label htmlFor="contactPhone" >Contacto (tel): </label>
+                    <label htmlFor="contactPhone" >Contacto WhatsApp(<FaWhatsapp />): </label>
                     <input
                         type="text"
                         id="contactPhone"
                         name="contactPhone"
+                        placeholder="Ej. +54 2457000000"
                         value={contactPhone}
                         onChange={ handleInputChange }
                     />
@@ -154,6 +156,7 @@ const NewPublication = ({refresh}) => {
                         type="text"
                         id="place"
                         name="place"
+                        placeholder="Ciudad, barrio, etc"
                         value={place}
                         onChange={ handleInputChange }
                     />
@@ -175,6 +178,7 @@ const NewPublication = ({refresh}) => {
                         required
                         value={description}
                         onChange={ handleInputChange }
+                        placeholder='Ingrese aquí una breve pero clara descripción del animal e información adicional'
                     />
                     <div className={styles['container-btn']}>
                         <button type="reset" onClick={cancelPost} className={styles['cancel-btn']} >Cancelar</button>

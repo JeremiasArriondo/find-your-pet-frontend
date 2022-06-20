@@ -14,7 +14,7 @@ const Buscados = () => {
             setPublicationsWanted(petsWanted.data.publicationsWanted)
         }
     }, [petsWanted]);
-    console.log(petsWanted)
+    
     return (
       <div>
         <ContainerCards data={publicationsWanted} isLoading={isLoading} />

@@ -8,13 +8,14 @@ const ContainerCards = ({data, isLoading = false}) => {
         <div className={styles['container-img']}>
                {isLoading
                     ? <Loading color="secondary" size="md">Cargando...</Loading>
-                    : (data?.length > 0 && data?.map(({description, image, typePublication, _id}) => {
+                    : (data?.length > 0 && data?.map(({description, image, typePublication, contactPhone, _id}) => {
                         return (
                             <CardCustom
                                 key={_id}
                                 description={description}
                                 image={image}
                                 typePublication={typePublication}
+                                contactPhone={contactPhone}
                             />
                         )
                     })

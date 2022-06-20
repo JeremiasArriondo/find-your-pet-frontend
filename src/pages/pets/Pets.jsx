@@ -14,29 +14,40 @@ const Pets = () => {
 
     const [refreshPublications, setRefreshPublications] = useState(false);
 
+    const [result, setResult] = useState(null);
+
+    const [isLoading, setIsLoading] = useState(null);
+
     const searchText = (text) => {
         setSearch(text);
     };
 
     const handleSearch = () => {
-        if(search.length >= 3){
+        if(search.trim().length >= 3){
+            setIsLoading(true);
             fetchWithToken('publication/all', {search: search}, 'POST')
             .then((res) => {
                 if(res.status){
                     setPublications(res.data.publications);
+                    setResult(res.data.total);
+                    setIsLoading(false);
                 };
-            })
+            });
+            
         }
     }
 
     const refresh = () => setRefreshPublications(true);
 
     useEffect(() => {
-        if(search.length <= 1){
+        if(search.length < 1){
+            setIsLoading(true);
             fetchWithToken('publication/all', {search:''}, 'POST')
             .then((res) => {
                 if(res.status){
-                    setPublications(res.data.publications)
+                    setPublications(res.data.publications);
+                    setResult(null);
+                    setIsLoading(false);
                 }
             });
         }
@@ -44,23 +55,27 @@ const Pets = () => {
 
     useEffect(() => {
         if(refreshPublications){
+            setIsLoading(true);
             fetchWithToken('publication/all', {search:''}, 'POST')
             .then((res) => {
                 if(res.status){
-                    setPublications(res.data.publications)
+                    setPublications(res.data.publications);
+                    setResult(null);
+                    setIsLoading(false);
                 }
             });
         }
     }, [refreshPublications])
-
+    
     return (
         <div className={styles.container}>
             <Search
                 search={search}
                 searchText={searchText}
                 handleSearch={handleSearch}
+                result={result}
             />
-            <ContainerCards data={publications} />
+            <ContainerCards data={publications} isLoading={isLoading}/>
             <NewPublication refresh={refresh} />
         </div>
     );

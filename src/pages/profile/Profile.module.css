@@ -10,6 +10,7 @@
     width: 30%;
     min-height: 300px;
     padding: .5rem;
+    overflow-wrap: break-word;
 }
 
 .profile h2{
@@ -17,6 +18,10 @@
     text-align: center;
     border-bottom: 1px solid white;
     padding: .5rem;
+}
+
+.container-info{
+    padding-top: 1rem;
 }
 
 .profile-img{
