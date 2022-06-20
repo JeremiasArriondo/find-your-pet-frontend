@@ -48,4 +48,7 @@
     .container-section {
         display: none;
     }
+    .logo{
+        text-align: center;
+    }
 }

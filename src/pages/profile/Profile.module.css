@@ -4,31 +4,110 @@
 }
 
 .profile{
-    background-color: rgb(0, 0, 0, .75);
+    background-color: var(--shadow-grey);
     border-radius: 8px;
     color: white;
     width: 30%;
     min-height: 300px;
+    padding: .5rem;
+    overflow-wrap: break-word;
 }
 
 .profile h2{
-    color: white;
+    color: var(--dark-violet);
     text-align: center;
     border-bottom: 1px solid white;
     padding: .5rem;
 }
 
-.publication{
-    background-color: rgb(0, 0, 0, .75);
-    border-radius: 8px;
+.container-info{
+    padding-top: 1rem;
+}
+
+.profile-img{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    color: var(--dark-violet);
+}
+
+.profile-img img{
+    margin: 0 auto;
+}
+
+.container-publications{
     width: 70%;
+}
+
+.container-publications h3{
+    color: var(--dark-violet);
+}
+
+.container-publication-img{
+    background-color: var(--shadow-grey);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.container-btn button{
+    display: inline-block;
+    width: 100%;
+    padding: .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+}
+
+.container-btn .delete-btn{
+    color: #fff;
+    background-color:#EC5757;
+}
+
+
+.container-btn .delete-btn:hover{
+    background-color: #AA3333;
+}
+
+.container-dialog{
+    display: flex;
+}
+
+.container-dialog button{
+    display: inline-block;
+    width: 100%;
+    padding: .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+}
+
+.container-dialog .delete-btn{
+    color: #fff;
+    background-color:#EC5757;
+}
+
+.container-dialog .delete-btn:hover{
+    background-color: #AA3333;
+}
+
+.container-dialog .cancel-btn{
+    color: #fff;
+    background-color: var(--shadow-grey);
+}
+
+.container-dialog .cancel-btn:hover{
+    background-color: #a8a8a8;
 }
 
 @media (max-width: 450px) {
     .container{
         flex-direction: column;
     }
-    .profile, .publication{
+    .profile, .container-publications{
         width: 100%;
     }
 }

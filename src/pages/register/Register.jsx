@@ -1,28 +1,59 @@
 import { Button } from '@nextui-org/react';
+import swal from 'sweetalert';
+import { fetchWithToken } from '../../helpers/fetch';
 import useForm from '../../hooks/useForm';
 import styles from './Register.module.css';
 
-const Register = () => {
+const initialState = {
+    name: '',
+    lastname: '',
+    email: '',
+    password: '',
+    passwordConfirm: ''
+}
 
-    const [ formValues, handleInputCHange] = useForm({
-        name: '',
-        lastName: '',
-        email: '',
-        password: '',
-        passwordConfirm: ''
-    });
+const Register = ({closeModal}) => {
 
-    const { name,lastName, email, password, passwordConfirm } = formValues;
+    const [ formValues, handleInputChange, resetFields] = useForm(initialState);
+
+    const { name, lastname, email, password, passwordConfirm } = formValues;
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log( formValues )
-    }
+        e.preventDefault();
+        try {
+            fetchWithToken('user', formValues , 'POST')
+					.then((resp) => {
+						if (resp.status) {
+							console.log('Usuario creado con éxito');
+                            swal({
+                                title: "Bienvenid@!!",
+                                text: "Tu usuario fue creado con éxito! Ya puedes iniciar sesión con tu nueva cuenta",
+                                icon: "success",
+                                timer: 3000
+                            });
+                            resetFields();
+                            closeModal()
+						} else {
+							const [msg] = resp.errors;
+							swal({
+                                title: "OOOPS!",
+                                text: `${msg.msg}`,
+                                icon: "error",
+                                timer: 3000
+                            });
+						}
+					})
+					.catch(() => {
+						console.log('No es posible crear el usuario');
+					});
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
     return (
-        <div className={styles['container']}>
+        // <div className={styles['container']}>
             <form className={styles['container-register']} onSubmit={ handleSubmit } >
-                <h1>Registro</h1>
                 <label htmlFor='Name'>Nombre: </label>
                 <input
                     id='Name'
@@ -31,17 +62,17 @@ const Register = () => {
                     minLength={3}
                     placeholder='Ingresa tu nombre'
                     value={ name }
-                    onChange={ handleInputCHange }    
+                    onChange={ handleInputChange }    
                 />
-                <label htmlFor='LastName'>Apellido: </label>
+                <label htmlFor='Lastname'>Apellido: </label>
                 <input
-                    id='LastName'
+                    id='Lastname'
                     type='text'
-                    name='lastName'
+                    name='lastname'
                     minLength={3}
                     placeholder='Ingresá tu apellido'
-                    value={ lastName }
-                    onChange={ handleInputCHange }
+                    value={ lastname }
+                    onChange={ handleInputChange }
                 />
                 <label htmlFor='Email'>Email: </label>
                 <input
@@ -53,7 +84,7 @@ const Register = () => {
                     placeholder='tucorreo@email.com'
                     value={ email }
                     title='Por favor, ingrese una dirección de correo válida'
-                    onChange={ handleInputCHange }
+                    onChange={ handleInputChange }
                 />
                 <label htmlFor='Password'>Contraseña: </label>
                 <input 
@@ -64,9 +95,9 @@ const Register = () => {
                     autoComplete='off'
                     minLength={6}
                     value={ password }
-                    onChange={ handleInputCHange }
+                    onChange={ handleInputChange }
                 />
-                <label htmlFor='passwordConfirm'>Contraseña: </label>
+                {/* <label htmlFor='passwordConfirm'>Contraseña: </label>
                 <input
                     id='passwordConfirm'
                     type='password'
@@ -75,11 +106,11 @@ const Register = () => {
                     minLength={6}
                     autoComplete='off'
                     value={ passwordConfirm }
-                    onChange={ handleInputCHange }
-                />
+                    onChange={ handleInputChange }
+                /> */}
                 <Button style={{width: '100%'}} type='submit'>Registrar</Button>
             </form>
-        </div>
+        // </div>
   )
 }
 

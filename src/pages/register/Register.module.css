@@ -14,9 +14,9 @@
     width: 400px;
     align-items: start;
     justify-content: center;
-    border: 1px solid var(--shadow-grey);
+    /* border: 1px solid var(--shadow-grey);
     border-radius: 5px;
-    box-shadow: 0px 0px 30px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 30px -5px rgba(0, 0, 0, 0.75); */
     padding: 2rem;
 }
 

@@ -18,3 +18,40 @@
 .container-info {
     text-align: center;
 }
+
+
+/**
+    FOOTER NAVIGATION
+**/
+
+.footer-container-nav{
+    display: none;
+    width: 100%;
+}
+
+.footer-navigation{
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    padding: 1rem 0;
+    justify-content: space-around;
+    background: rgb(0, 0, 0, 0.5);
+    backdrop-filter: saturate(180%) blur(18px);
+}
+
+.active {
+    background-color: var(--shadow-grey);
+    border-radius: 5px;
+}
+
+
+@media (max-width: 650px) {
+    .container{
+        display: none;
+    }
+    .footer-container-nav{
+        display: inline;
+        position: fixed;
+        bottom: 0;
+    }
+}
