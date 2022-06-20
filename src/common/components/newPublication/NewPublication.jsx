@@ -148,6 +148,7 @@ const NewPublication = ({refresh}) => {
                         id="contactPhone"
                         name="contactPhone"
                         placeholder="Ej. +54 2457000000"
+                        required
                         value={contactPhone}
                         onChange={ handleInputChange }
                     />
