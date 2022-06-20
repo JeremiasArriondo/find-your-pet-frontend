@@ -39,3 +39,9 @@
     background-color: var(--shadow-grey);
     border-radius: 0 8px 8px 0;
 }
+
+@media (max-width: 650px) {
+    .container-search{
+        width: 80%;
+    }
+}
