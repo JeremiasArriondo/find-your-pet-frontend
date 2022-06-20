@@ -66,15 +66,20 @@ const Profile = () => {
     <div className={styles.container}>
         <div className={styles.profile}>
             <h2>Mi perfil</h2>
-            {isLoading
-                ? <Loading color="secondary" size="md">Cargando...</Loading>
-                : (Object.keys(userData).length > 0 &&
-                    <ul>
-                        {userData.fullName && <li>{userData.fullName}</li>}
-                        {userData.email && <li>{userData.email}</li>}
-                        {userData.phone && <li>Tel: {userData.phone}</li>}
-                    </ul>)
-            }
+            <div className={styles['profile-img']}>
+                <img src='/img/perfil.png' width={100} height={100} alt='img perfil'/>
+                {isLoading
+                    ? <Loading color="secondary" size="md">Cargando...</Loading>
+                    : (Object.keys(userData).length > 0 &&
+                        <div>
+                            {userData.fullName && <p>Hola {userData.fullName}!!</p>}
+                            <p>Bienvenido a tu perfil</p>
+                            {userData.email && <p>Email: {userData.email}</p>}
+                            {userData.phone && <p>Tel: {userData.phone}</p>}
+                        </div>)
+                }
+            </div>
+            
         </div>
         <div className={styles['container-publications']}>
             <h3>Mis publicaciones: </h3>

@@ -65,7 +65,7 @@ const NavBar = () => {
             <Tooltip placement='bottomEnd' content={<ContentTooltip logout={handleLogout} />}>
                 <Avatar
                     pointer
-                    src='/img/unicorn.svg'
+                    src='/img/perfil.png'
                     color='gradient'
                     bordered
                 />

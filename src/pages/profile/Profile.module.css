@@ -13,10 +13,21 @@
 }
 
 .profile h2{
-    color: var(--light-violet);
+    color: var(--dark-violet);
     text-align: center;
     border-bottom: 1px solid white;
     padding: .5rem;
+}
+
+.profile-img{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    color: var(--dark-violet);
+}
+
+.profile-img img{
+    margin: 0 auto;
 }
 
 .container-publications{
