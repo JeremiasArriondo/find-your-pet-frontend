@@ -2,6 +2,8 @@ import { Modal } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FcAddImage } from "react-icons/fc";
+import { MdDoubleArrow } from "react-icons/md";
+import { AiFillDelete } from "react-icons/ai";
 import swal from "sweetalert";
 import { fetchWithToken } from "../../../helpers/fetch";
 import useForm from "../../../hooks/useForm";
@@ -10,6 +12,7 @@ import styles from './styles.module.css';
 
 const NewPublication = ({refresh}) => {
     const [open, setOpen] = useState(false);
+    const [showButton, setShowButton] = useState(false);
 
     const [file, setFile] = useState(null);
     const [fileDataURL, setFileDataURL] = useState(null);
@@ -106,16 +109,29 @@ const NewPublication = ({refresh}) => {
           }
         }
     }, [file]);
-
+    
     return (
-        <div className={styles['position']}>
-            <button className={styles['button']}
-                onClick={showModal}
-            >
-                <FcAddImage
-                    size={'2.5rem'}
-                />
-            </button>
+        <div className={` ${styles[`position`]} ${styles[`${showButton && 'show'}`]}`}>
+            <div className={styles[`container-menu`]}>
+                <button onClick={() => setShowButton(!showButton)}
+                    className={styles['double-arrow']}
+                >
+                    <MdDoubleArrow size={'2.8rem'}/>
+                </button>
+                <div className={styles[`container-menu-button`]}>
+                    <button className={styles['button']}
+                        onClick={showModal}
+                    >
+                        <FcAddImage
+                            size={'2.8rem'}
+                        />
+                    </button>
+                    <button className={styles['button']}>
+                        <AiFillDelete size={'3rem'} style={{color: 'red'}} />
+                    </button>
+                </div> 
+            </div>
+            
             <Modal
                 open={open}
                 onClose={hideModal}

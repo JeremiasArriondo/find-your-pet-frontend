@@ -1,7 +1,7 @@
 import { FcSearch } from 'react-icons/fc';
 import styles from './Search.module.css';
 
-const Search = ({search, searchText, handleSearch, result}) => {
+const Search = ({search, searchText, handleSearch, handleSearchOnEnter, result}) => {
     return (
         <div className={styles['container-search']}>
             <div className={styles['container-search-btn']}>
@@ -10,6 +10,7 @@ const Search = ({search, searchText, handleSearch, result}) => {
                     value={search}
                     placeholder='Buscame...'
                     onChange={(e) => searchText(e.target.value)}
+                    onKeyDown={(e) => handleSearchOnEnter(e)}
                     width='100%'
                     minLength={3}
                 />

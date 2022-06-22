@@ -19,11 +19,15 @@ const Pets = () => {
     const [isLoading, setIsLoading] = useState(null);
 
     const searchText = (text) => {
-        setSearch(text);
+        if(text.trim().length > 0){
+            setSearch(text);
+        } else{
+            setSearch('');
+        }
     };
 
     const handleSearch = () => {
-        if(search.trim().length >= 3){
+        if(search.trim().length >= 3 ){
             setIsLoading(true);
             fetchWithToken('publication/all', {search: search}, 'POST')
             .then((res) => {
@@ -32,8 +36,21 @@ const Pets = () => {
                     setResult(res.data.total);
                     setIsLoading(false);
                 };
-            });
-            
+            });    
+        }
+    }
+
+    const handleSearchOnEnter = event => {
+        if(search.trim().length >= 3 && event.key === 'Enter'){
+            setIsLoading(true);
+            fetchWithToken('publication/all', {search: search}, 'POST')
+            .then((res) => {
+                if(res.status){
+                    setPublications(res.data.publications);
+                    setResult(res.data.total);
+                    setIsLoading(false);
+                };
+            });    
         }
     }
 
@@ -74,6 +91,7 @@ const Pets = () => {
                 searchText={searchText}
                 handleSearch={handleSearch}
                 result={result}
+                handleSearchOnEnter={handleSearchOnEnter}
             />
             <ContainerCards data={publications} isLoading={isLoading}/>
             <NewPublication refresh={refresh} />

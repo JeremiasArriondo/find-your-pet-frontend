@@ -8,10 +8,12 @@
 .container-search p{
     color: red;
     font-size: .8rem;
+    padding-top: .5rem;
 }
 
 .container-search h5{
-    color: var(--shadow-grey)
+    color: var(--shadow-grey);
+    padding-top: .5rem;
 }
 
 .container-search-btn{
