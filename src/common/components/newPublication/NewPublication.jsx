@@ -14,7 +14,7 @@ import styles from './styles.module.css';
 const NewPublication = ({refresh}) => {
     const [open, setOpen] = useState(false);
     const [showButton, setShowButton] = useState(false);
-
+    const [btnDisabled, setBtnDisabled] = useState(false);
     const [file, setFile] = useState(null);
     const [fileDataURL, setFileDataURL] = useState(null);
     
@@ -33,8 +33,8 @@ const NewPublication = ({refresh}) => {
 
     const submitPublication = (e) => {
         e.preventDefault();
+        setBtnDisabled(true);
         try {
-            console.log(values);
             //Instanciación del objeto form data
             const formData = new FormData();
             // formData.append(description, contactPhone, place, typePublication)
@@ -54,8 +54,10 @@ const NewPublication = ({refresh}) => {
                                 time: 3000
                             });
                             resetFields();
+                            setBtnDisabled(false);
                             setFile(null);
                             setOpen(false);
+                            setFileDataURL(null);
                             refresh();
                         } else {
                             const [msg] = res.errors;
@@ -64,7 +66,8 @@ const NewPublication = ({refresh}) => {
                                 text: `${msg.msg}`,
                                 icon: "error",
                                 timer: 3000
-                            })
+                            });
+                            setBtnDisabled(false);
                         }
                     })
                     .catch((e) => {
@@ -78,7 +81,7 @@ const NewPublication = ({refresh}) => {
                     });
         } catch (error) {
             console.log(error)
-        }   
+        }
     };
 
     const fileUpload = (e) => {
@@ -202,7 +205,11 @@ const NewPublication = ({refresh}) => {
                     />
                     <div className={styles['container-btn']}>
                         <button type="reset" onClick={cancelPost} className={styles['cancel-btn']} >Cancelar</button>
-                        <button type="submit">Guardar</button>
+                        <button type="submit" disabled={
+                            btnDisabled
+                        }
+                        className={`${styles['submit-btn']} ${btnDisabled ? styles['disabled'] : ''}`}
+                        >{btnDisabled ? 'Cargando...': 'Guardar'}</button>
                     </div>
                 </form>
             </Modal>

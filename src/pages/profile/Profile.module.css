@@ -55,24 +55,31 @@
     gap: 1rem;
 }
 
-.container-btn button{
+.delete-btn-primary{
     display: inline-block;
     width: 100%;
     padding: .5rem;
     cursor: pointer;
     font-size: 1rem;
     border: none;
+    border-radius: 8px;
+    /* border: 2px solid var(--dark-violet); */
+    box-shadow: inset 0px 0px 14px var(--dark-violet);
+    color: var(--dark-violet);
 }
 
-.container-btn .delete-btn{
+.delete-btn-primary:hover{
+    box-shadow: inset 0px 0px 40px var(--dark-violet); 
+}
+/* .container-btn .delete-btn{
     color: #fff;
     background-color:#EC5757;
-}
+} */
 
 
-.container-btn .delete-btn:hover{
+/* .container-btn .delete-btn:hover{
     background-color: #AA3333;
-}
+} */
 
 .container-dialog{
     display: flex;

@@ -83,12 +83,11 @@ const Profile = () => {
         </div>
         <div className={styles['container-publications']}>
             <h3>Mis publicaciones: </h3>
-            {userPublications?.length < 0
-            ?
-            (<div className={styles['container-publication-img']}>
+            <div className={styles['container-publication-img']}>
                 {isLoading
                         ? <Loading color="secondary" size="md">Cargando...</Loading>
-                        : (userPublications?.length > 0 && userPublications?.map(({description, image, typePublication, _id}) => {
+                        : (userPublications?.length > 0
+                            ? userPublications?.map(({description, image, typePublication, _id}) => {
                             return (
                                 <div
                                     key={_id}
@@ -99,7 +98,7 @@ const Profile = () => {
                                         image={image}
                                         typePublication={typePublication}
                                     />
-                                    <button className={styles['delete-btn']}
+                                    <button className={styles['delete-btn-primary']}
                                         onClick={showModal}
                                     >Borrar</button>
                                     <Dialog onClick={showModal} open={open}>
@@ -116,13 +115,10 @@ const Profile = () => {
                                 </div>                         
                             )
                         })
-                    )
+                         :  <h4 className={styles['empty-data']}>No hay publicaciones creadas</h4>
+                        )
                     }
-            </div>)
-            : <div className={styles['container-publication-img']}>
-                <h4 className={styles['empty-data']}>No hay publicaciones creadas</h4>
             </div>
-            }
             <NewPublication refresh={refresh}/>  
         </div>      
     </div>

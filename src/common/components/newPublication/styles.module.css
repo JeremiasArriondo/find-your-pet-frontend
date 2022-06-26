@@ -145,15 +145,19 @@ input[type="file"]{
     width: 100%;
     padding: .5rem;
     cursor: pointer;
-    color: #7828c8;
     font-size: 1rem;
     background-color: var(--shadow-grey);
     border: none;
 }
 
-.container-btn button:hover{
+.container-btn .submit-btn{
+    color: #7828c8;
+}
+
+.container-btn .submit-btn:hover{
     background-color: #a8a8a8;
 }
+
 
 .container-btn .cancel-btn{
     color: #fff;
@@ -162,4 +166,13 @@ input[type="file"]{
 
 .container-btn .cancel-btn:hover{
     background-color: #AA3333;
+}
+
+.container-btn .disabled{
+    color: #666666;
+}
+
+.container-btn .disabled:hover{
+    background-color: var(--shadow-grey);
+    cursor: default;
 }
