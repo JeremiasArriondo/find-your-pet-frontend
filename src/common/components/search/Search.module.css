@@ -40,6 +40,11 @@
     border: none;
     background-color: var(--shadow-grey);
     border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.container-search-btn button:hover{
+    background-color: #a8a8a8;
 }
 
 @media (max-width: 650px) {

@@ -50,6 +50,7 @@
     -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
     border-radius: 0 12px 12px 0;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -59,6 +60,7 @@
 .button{
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 

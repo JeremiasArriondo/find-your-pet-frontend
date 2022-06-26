@@ -105,6 +105,10 @@
     background-color: #a8a8a8;
 }
 
+.empty-data{
+    color: var(--shadow-grey);
+}
+
 @media (max-width: 450px) {
     .container{
         flex-direction: column;

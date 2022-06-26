@@ -83,7 +83,9 @@ const Profile = () => {
         </div>
         <div className={styles['container-publications']}>
             <h3>Mis publicaciones: </h3>
-            <div className={styles['container-publication-img']}>
+            {userPublications?.length < 0
+            ?
+            (<div className={styles['container-publication-img']}>
                 {isLoading
                         ? <Loading color="secondary" size="md">Cargando...</Loading>
                         : (userPublications?.length > 0 && userPublications?.map(({description, image, typePublication, _id}) => {
@@ -116,7 +118,11 @@ const Profile = () => {
                         })
                     )
                     }
+            </div>)
+            : <div className={styles['container-publication-img']}>
+                <h4 className={styles['empty-data']}>No hay publicaciones creadas</h4>
             </div>
+            }
             <NewPublication refresh={refresh}/>  
         </div>      
     </div>
