@@ -7,16 +7,32 @@ import Search from '../../common/components/search/Search';
 import NewPublication from '../../common/components/newPublication/NewPublication';
 
 const Pets = () => {
-    
+    //Estado para manejar el texto en la busqueda
     const [search, setSearch] = useState('');
-
+    //Estado para manejar la coleccion de publicaciones
     const [publications, setPublications] = useState([]);
-
+    //Estado para hacer una recarga de las publicaciones
     const [refreshPublications, setRefreshPublications] = useState(false);
-
+    //Estado para manejar el resultado total de las busquedas
     const [result, setResult] = useState(null);
-
+    //Estado de carga de una punlicacion
     const [isLoading, setIsLoading] = useState(null);
+
+    //Estado para manejar el limite y el salto en la paginación
+    const [limit, setLimit] = useState(8);
+    const [offset, setOffset] = useState(0);
+
+    const fetchPublication = (limit, offset) => {
+        setIsLoading(true);
+        fetchWithToken(`publication/all?limit=${limit}&offset=${offset}`, {search:''}, 'POST')
+            .then((res) => {
+                if(res.status){
+                    setPublications(res.data.publications);
+                    setResult(null);
+                    setIsLoading(false);
+                }
+            });
+    }
 
     const searchText = (text) => {
         if(text.trim().length > 0){
@@ -59,7 +75,7 @@ const Pets = () => {
     useEffect(() => {
         if(search.length < 1){
             setIsLoading(true);
-            fetchWithToken('publication/all', {search:''}, 'POST')
+            fetchWithToken(`publication/all?limit=${limit}&offset=${offset}`, {search:''}, 'POST')
             .then((res) => {
                 if(res.status){
                     setPublications(res.data.publications);
@@ -82,7 +98,11 @@ const Pets = () => {
                 }
             });
         }
-    }, [refreshPublications])
+    }, [refreshPublications]);
+
+    useEffect(() => {
+        fetchPublication(limit, offset);
+    }, [limit, offset]);
     
     return (
         <div className={styles.container}>

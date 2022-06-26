@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FcAddImage } from "react-icons/fc";
 import { MdDoubleArrow } from "react-icons/md";
-import { AiFillDelete } from "react-icons/ai";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
 import swal from "sweetalert";
 import { fetchWithToken } from "../../../helpers/fetch";
 import useForm from "../../../hooks/useForm";
@@ -126,9 +127,11 @@ const NewPublication = ({refresh}) => {
                             size={'2.8rem'}
                         />
                     </button>
-                    <button className={styles['button']}>
-                        <AiFillDelete size={'3rem'} style={{color: 'red'}} />
-                    </button>
+                    <NavLink to={'/profile'}>
+                        <button className={styles['button']}>
+                            <RiDeleteBin5Line size={'3rem'} style={{color: 'red'}} />
+                        </button>
+                    </NavLink>
                 </div> 
             </div>
             

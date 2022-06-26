@@ -4,7 +4,8 @@
 }
 
 .profile{
-    background-color: var(--shadow-grey);
+    background-color: transparent;
+    border: 2px solid var(--light-violet);
     border-radius: 8px;
     color: white;
     width: 30%;
@@ -44,7 +45,8 @@
 }
 
 .container-publication-img{
-    background-color: var(--shadow-grey);
+    background-color: transparent;
+    border: 2px solid var(--light-violet);
     border-radius: 8px;
     padding: 1rem;
     width: 100%;
