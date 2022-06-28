@@ -1,4 +1,4 @@
-import { Modal } from "@nextui-org/react";
+import { Loading, Modal } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FcAddImage } from "react-icons/fc";
@@ -61,6 +61,7 @@ const NewPublication = ({refresh}) => {
                             refresh();
                         } else {
                             const [msg] = res.errors;
+                            console.log(msg)
                             swal({
                                 title: "OOOPS!",
                                 text: `${msg.msg}`,
@@ -209,7 +210,7 @@ const NewPublication = ({refresh}) => {
                             btnDisabled
                         }
                         className={`${styles['submit-btn']} ${btnDisabled ? styles['disabled'] : ''}`}
-                        >{btnDisabled ? 'Cargando...': 'Guardar'}</button>
+                        >{btnDisabled ? <span> <Loading color="secondary" size="xs" /> Cargando...</span>: 'Guardar'}</button>
                     </div>
                 </form>
             </Modal>

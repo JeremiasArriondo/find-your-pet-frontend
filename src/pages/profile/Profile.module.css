@@ -69,17 +69,9 @@
 }
 
 .delete-btn-primary:hover{
+    color: #fff;
     box-shadow: inset 0px 0px 40px var(--dark-violet); 
 }
-/* .container-btn .delete-btn{
-    color: #fff;
-    background-color:#EC5757;
-} */
-
-
-/* .container-btn .delete-btn:hover{
-    background-color: #AA3333;
-} */
 
 .container-dialog{
     display: flex;
