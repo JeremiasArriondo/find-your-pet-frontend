@@ -2,16 +2,67 @@
     top: 70px;
     right: 5px;
     position: fixed;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
-.button{
-    border: none;
+.container-menu{
+    display: flex;
+    position: fixed;
+    right: -50px;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.container-menu-button{
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: saturate(180%) blur(18px);
+    border-radius: 0 0 0 12px;
+}
+
+.show{
+    right: 150px;
+}
+
+.show .container-menu{
+    right: 0;
+}
+
+.double-arrow{
     background-color: transparent;
+    backdrop-filter: saturate(180%) blur(18px);
+    border: none;
+    margin-bottom: auto;
+}
+
+.show .double-arrow{
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    border-radius: 12px 0 0 12px;
+}
+
+.double-arrow{
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
 }
 
 .button:hover {
     transform: scale(1.1);
 }
+
+.button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 
 .container-form{
     display: flex;
@@ -94,15 +145,19 @@ input[type="file"]{
     width: 100%;
     padding: .5rem;
     cursor: pointer;
-    color: #7828c8;
     font-size: 1rem;
     background-color: var(--shadow-grey);
     border: none;
 }
 
-.container-btn button:hover{
+.container-btn .submit-btn{
+    color: #7828c8;
+}
+
+.container-btn .submit-btn:hover{
     background-color: #a8a8a8;
 }
+
 
 .container-btn .cancel-btn{
     color: #fff;
@@ -111,4 +166,13 @@ input[type="file"]{
 
 .container-btn .cancel-btn:hover{
     background-color: #AA3333;
+}
+
+.container-btn .disabled{
+    color: #666666;
+}
+
+.container-btn .disabled:hover{
+    background-color: var(--shadow-grey);
+    cursor: default;
 }

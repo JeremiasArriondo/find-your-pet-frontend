@@ -1,7 +1,10 @@
-import { Modal } from "@nextui-org/react";
+import { Loading, Modal } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FcAddImage } from "react-icons/fc";
+import { MdDoubleArrow } from "react-icons/md";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
 import swal from "sweetalert";
 import { fetchWithToken } from "../../../helpers/fetch";
 import useForm from "../../../hooks/useForm";
@@ -10,7 +13,8 @@ import styles from './styles.module.css';
 
 const NewPublication = ({refresh}) => {
     const [open, setOpen] = useState(false);
-
+    const [showButton, setShowButton] = useState(false);
+    const [btnDisabled, setBtnDisabled] = useState(false);
     const [file, setFile] = useState(null);
     const [fileDataURL, setFileDataURL] = useState(null);
     
@@ -29,8 +33,8 @@ const NewPublication = ({refresh}) => {
 
     const submitPublication = (e) => {
         e.preventDefault();
+        setBtnDisabled(true);
         try {
-            console.log(values);
             //Instanciación del objeto form data
             const formData = new FormData();
             // formData.append(description, contactPhone, place, typePublication)
@@ -50,17 +54,21 @@ const NewPublication = ({refresh}) => {
                                 time: 3000
                             });
                             resetFields();
+                            setBtnDisabled(false);
                             setFile(null);
                             setOpen(false);
+                            setFileDataURL(null);
                             refresh();
                         } else {
                             const [msg] = res.errors;
+                            console.log(msg)
                             swal({
                                 title: "OOOPS!",
                                 text: `${msg.msg}`,
                                 icon: "error",
                                 timer: 3000
-                            })
+                            });
+                            setBtnDisabled(false);
                         }
                     })
                     .catch((e) => {
@@ -74,7 +82,7 @@ const NewPublication = ({refresh}) => {
                     });
         } catch (error) {
             console.log(error)
-        }   
+        }
     };
 
     const fileUpload = (e) => {
@@ -106,16 +114,31 @@ const NewPublication = ({refresh}) => {
           }
         }
     }, [file]);
-
+    
     return (
-        <div className={styles['position']}>
-            <button className={styles['button']}
-                onClick={showModal}
-            >
-                <FcAddImage
-                    size={'2.5rem'}
-                />
-            </button>
+        <div className={` ${styles[`position`]} ${styles[`${showButton && 'show'}`]}`}>
+            <div className={styles[`container-menu`]}>
+                <button onClick={() => setShowButton(!showButton)}
+                    className={styles['double-arrow']}
+                >
+                    <MdDoubleArrow size={'2.8rem'}/>
+                </button>
+                <div className={styles[`container-menu-button`]}>
+                    <button className={styles['button']}
+                        onClick={showModal}
+                    >
+                        <FcAddImage
+                            size={'2.8rem'}
+                        />
+                    </button>
+                    <NavLink to={'/profile'}>
+                        <button className={styles['button']}>
+                            <RiDeleteBin5Line size={'3rem'} style={{color: 'red'}} />
+                        </button>
+                    </NavLink>
+                </div> 
+            </div>
+            
             <Modal
                 open={open}
                 onClose={hideModal}
@@ -183,7 +206,11 @@ const NewPublication = ({refresh}) => {
                     />
                     <div className={styles['container-btn']}>
                         <button type="reset" onClick={cancelPost} className={styles['cancel-btn']} >Cancelar</button>
-                        <button type="submit">Guardar</button>
+                        <button type="submit" disabled={
+                            btnDisabled
+                        }
+                        className={`${styles['submit-btn']} ${btnDisabled ? styles['disabled'] : ''}`}
+                        >{btnDisabled ? <span> <Loading color="secondary" size="xs" /> Cargando...</span>: 'Guardar'}</button>
                     </div>
                 </form>
             </Modal>

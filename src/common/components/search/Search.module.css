@@ -8,10 +8,12 @@
 .container-search p{
     color: red;
     font-size: .8rem;
+    padding-top: .5rem;
 }
 
 .container-search h5{
-    color: var(--shadow-grey)
+    color: var(--shadow-grey);
+    padding-top: .5rem;
 }
 
 .container-search-btn{
@@ -38,6 +40,11 @@
     border: none;
     background-color: var(--shadow-grey);
     border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.container-search-btn button:hover{
+    background-color: #a8a8a8;
 }
 
 @media (max-width: 650px) {

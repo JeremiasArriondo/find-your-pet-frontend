@@ -4,7 +4,8 @@
 }
 
 .profile{
-    background-color: var(--shadow-grey);
+    background-color: #fff;
+    border: 2px solid var(--light-violet);
     border-radius: 8px;
     color: white;
     width: 30%;
@@ -44,7 +45,8 @@
 }
 
 .container-publication-img{
-    background-color: var(--shadow-grey);
+    background-color: #fff;
+    border: 2px solid var(--light-violet);
     border-radius: 8px;
     padding: 1rem;
     width: 100%;
@@ -53,23 +55,22 @@
     gap: 1rem;
 }
 
-.container-btn button{
+.delete-btn-primary{
     display: inline-block;
     width: 100%;
     padding: .5rem;
     cursor: pointer;
     font-size: 1rem;
     border: none;
+    border-radius: 8px;
+    /* border: 2px solid var(--dark-violet); */
+    box-shadow: inset 0px 0px 14px var(--dark-violet);
+    color: var(--dark-violet);
 }
 
-.container-btn .delete-btn{
+.delete-btn-primary:hover{
     color: #fff;
-    background-color:#EC5757;
-}
-
-
-.container-btn .delete-btn:hover{
-    background-color: #AA3333;
+    box-shadow: inset 0px 0px 40px var(--dark-violet); 
 }
 
 .container-dialog{
@@ -101,6 +102,10 @@
 
 .container-dialog .cancel-btn:hover{
     background-color: #a8a8a8;
+}
+
+.empty-data{
+    color: var(--shadow-grey);
 }
 
 @media (max-width: 450px) {
